@@ -13,6 +13,30 @@
         android:theme="@style/Theme.MoneyMinder"
         tools:targetApi="31">
         <activity
+            android:name=".PanelControlAlarma"
+            android:exported="false" />
+        <activity
+            android:name=".FormularioNuevaAlarma"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ResumenGastos"
+            android:exported="true"></activity>
+        <activity
+            android:name=".ResumenNuevoGasto"
+            android:exported="true" />
+        <activity
+            android:name=".FormularioNuevoGasto"
+            android:exported="true" />
+        <activity
+            android:name=".FormularioDatosPersonales"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

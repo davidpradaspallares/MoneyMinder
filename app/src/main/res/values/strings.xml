@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">MoneyMinder</string>
+    <string-array name="listaCategorias">
+        <item>Categoría gasto</item>
+        <item>op2</item>
+        <item>op3</item>
+        <item>op4</item>
+        <item>op5</item>
+        <item>op6</item>
+    </string-array>
+    <string-array name="listaSubCategorias">
+        <item>Sub categoría gasto</item>
+        <item>op2</item>
+        <item>op3</item>
+        <item>op4</item>
+        <item>op5</item>
+        <item>op6</item>
+    </string-array>
+    <string-array name="listaIngresoGasto">
+        <item>Categoría alarma</item>
+        <item>Ingreso</item>
+        <item>Gasto</item>
+    </string-array>
 </resources>

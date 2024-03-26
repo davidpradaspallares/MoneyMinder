@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResumenGastos">
+
+    <ScrollView
+        android:layout_width="412dp"
+        android:layout_height="655dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="RESUMEN GASTOS"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnUlt30dias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:text="ULT 30D" />
+
+                <Button
+                    android:id="@+id/btnUltMes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/green"
+                    android:text="ULT MES" />
+
+                <Button
+                    android:id="@+id/btnUltAño"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:text="ULT AÑO" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnListarGastos"
+                android:layout_width="336dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:text="LISTAR GASTOS" />
+
+            <Button
+                android:id="@+id/ListarCategorias"
+                android:layout_width="336dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:text="LISTAR CATEGORÍAS" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="GASTOS TOTALES"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textGastoTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="XXXXX€"
+                android:textColor="@color/red"
+                android:textSize="25dp" />
+            <!-- CATEGORIAS MAYOR GASTO -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="CAT MAYOR GASTO"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textGastoCat1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="1 | Categoría_1 - X€"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textGastoCat2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="2 | Categoría_1 - X€"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textGastoCat3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="3 | Categoría_1 - X€"
+                android:textSize="25dp" />
+
+            <!-- SUB CATEGORIA MAYOR GASTO -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="SUB CAT MAYOR GASTO"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textGastoSubCat1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="1 | Categoría_1 - X€"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textGastoSubCat2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="2 | Categoría_1 - X€"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textGastoSubCat3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="3 | Categoría_1 - X€"
+                android:textSize="25dp" />
+            <!-- CATEGORIA MAS RECURRENTE -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="CAT MAS RECURRENTE"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textGastoMasRc1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="1 | Categoría_1 - X"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textGastoMasRc2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="2 | Categoría_1 - X"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textGastoMasRc3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="3 | Categoría_1 - X"
+                android:textSize="25dp" />
+            <!-- SUB CATEGORIA MAS RECURRENTE -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="SUB CAT MAS RECURRENTE"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textGastoMasRsC1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="1 | Categoría_1 - X"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textGastoMasRsC2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="2 | Categoría_1 - X"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textGastoMasRsC3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="3 | Categoría_1 - X"
+                android:textSize="25dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+    <!-- BARRA BAJA INICIO -->
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="412dp"
+        android:layout_height="77dp"
+        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/iBtnStatistics"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+        app:layout_constraintVertical_bias="0.518"
+        app:srcCompat="@drawable/statistics_icon" />
+
+    <ImageButton
+        android:id="@+id/iBtnAlert"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+        app:srcCompat="@drawable/alert_icon" />
+
+    <ImageButton
+        android:id="@+id/iBtnCrearGasto"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+        app:layout_constraintEnd_toStartOf="@+id/iBtnAlert"
+        app:layout_constraintStart_toEndOf="@+id/iBtnStatistics"
+        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+        app:srcCompat="@drawable/spent_icon" />
+
+    <!-- BARRA BAJA FIN -->
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
