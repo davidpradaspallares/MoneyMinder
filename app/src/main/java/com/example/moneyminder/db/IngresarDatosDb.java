@@ -20,6 +20,8 @@ public class IngresarDatosDb extends CrearDb {
         CrearDb crearDb = new CrearDb(context);
         SQLiteDatabase db = crearDb.getWritableDatabase();
 
+
+
         //Insertamos el registro
         ContentValues valores = new ContentValues();
         valores.put("nombre", nombre);

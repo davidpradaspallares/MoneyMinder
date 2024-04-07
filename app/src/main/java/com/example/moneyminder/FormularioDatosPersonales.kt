@@ -34,27 +34,31 @@ class FormularioDatosPersonales : AppCompatActivity() {
             var nombre = binding.inputName.text.toString()
             var apellidos = binding.inputApellidos.text.toString()
             var email = binding.inputEmail.text.toString()
-            var numeroTelefono = binding.inputTelefono.text.toString().toInt()
-            var salarioMensual = binding.inputSalarioMensual.text.toString().toDouble()
-            var ingresoSalario = binding.inputDiaIngreso.text.toString().toInt()
-
+            var numeroTelefono = binding.inputTelefono.text.toString()
+            var salarioMensual = binding.inputSalarioMensual.text.toString()
+            var ingresoSalario = binding.inputDiaIngreso.text.toString()
             //Llamamos la funcion de Java para crear la base de dato y suestructura.
             val creardB = CrearDb(this)
             val db = creardB.writableDatabase
 
+            //Si no tienen un dato todas las variables da error al insertar en la base de datos PROVISIONAL
+            if(email.length<1){email = "-"}
+            if(numeroTelefono.length<1){numeroTelefono = "0"}
+            if(salarioMensual.length<1){salarioMensual = "0.00"}
+            if(ingresoSalario.length<1){ingresoSalario = "0"}
+
             //Comprobamos que el usaurio introduzca los datos obligatorios y que la base de datos se cree correctamente.
-            if(nombre == "" && apellidos == ""){
+            if(!(nombre != "" && apellidos != "")){
                 Toast.makeText(this, "ERROR - RECUERDA INTRODUCIR TODOS LOS DATOS", Toast.LENGTH_LONG).show()
-                db.close()
             }else{
                 if(db != null){
 
                     //Ingresamos los datos del usuario en su tabla.
                     var ingresarDatosDb = IngresarDatosDb(this)
-                    ingresarDatosDb.insertarDatosUsuario(nombre,apellidos,email,numeroTelefono,salarioMensual,ingresoSalario)
-                    db.close()
+                    ingresarDatosDb.insertarDatosUsuario(nombre,apellidos,email,numeroTelefono.toInt(),salarioMensual.toDouble(),ingresoSalario.toInt())
+
                     //Pasamos al main
-                    var intent = Intent(this, MainActivity::class.java);
+                    var intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 }else{
                     Toast.makeText(this, "ERROR AL CREAR LA BASE DE DATOS", Toast.LENGTH_LONG).show()
