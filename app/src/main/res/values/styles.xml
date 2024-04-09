@@ -10,9 +10,12 @@
     <style name="boton_barra_baja">
         <item name="android:layout_width">50dp</item>
         <item name="android:layout_height">50dp</item>
-        <item name="android:layout_weight">1</item>
         <item name="android:background">@null</item>
         <item name="android:scaleType">fitCenter</item>
+    </style>
+    <style name="tabla_barra_baja">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_weight">1</item>
     </style>
     <style name="titulo_ventana">
         <item name="android:layout_width">wrap_content</item>

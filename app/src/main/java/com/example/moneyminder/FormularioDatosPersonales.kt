@@ -60,6 +60,7 @@ class FormularioDatosPersonales : AppCompatActivity() {
                     //Pasamos al main
                     var intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }else{
                     Toast.makeText(this, "ERROR AL CREAR LA BASE DE DATOS", Toast.LENGTH_LONG).show()
                 }
