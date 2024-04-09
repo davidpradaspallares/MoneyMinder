@@ -7,12 +7,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.moneyminder.databinding.ActivityResumenNuevoGastoBinding
+import com.example.moneyminder.databinding.ActivityVerDatosPersonalesBinding
 
-class ResumenNuevoGasto : AppCompatActivity(), OnClickListener {
-    private lateinit var binding: ActivityResumenNuevoGastoBinding
+class VerDatosPersonales : AppCompatActivity(), OnClickListener {
+    private lateinit var binding: ActivityVerDatosPersonalesBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityResumenNuevoGastoBinding.inflate(layoutInflater)
+        binding = ActivityVerDatosPersonalesBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
@@ -36,4 +36,6 @@ class ResumenNuevoGasto : AppCompatActivity(), OnClickListener {
             binding.iBtnCrearGasto.id ->{PasarVentanas(this, "FormularioNuevoGasto")}
         }
     }
+
 }
+

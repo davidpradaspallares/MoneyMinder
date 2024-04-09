@@ -24,18 +24,19 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
             insets
         }
 
-
+        binding.iBtnStatistics.setOnClickListener(this)
+        binding.iBtnAlert.setOnClickListener(this)
+        binding.iBtnUser.setOnClickListener(this)
         binding.iBtnCrearGasto.setOnClickListener(this)
-
 
     }
 
     override fun onClick(v: View?) {
         when(v?.id){
-            binding.iBtnStatistics.id ->{ startActivity(Intent (this, ResumenGastos::class.java))}
-            binding.iBtnAlert.id ->{ startActivity(Intent (this, PanelControlAlarma::class.java))}
-            binding.iBtnUser.id ->{ startActivity(Intent (this, VerDatosPersonales::class.java))}
-            binding.iBtnCrearGasto.id ->{ startActivity(Intent (this, FormularioNuevoGasto::class.java))}
+            binding.iBtnStatistics.id ->{PasarVentanas(this, "ResumenGastos")}
+            binding.iBtnAlert.id ->{PasarVentanas(this, "PanelControlAlarma")}
+            binding.iBtnUser.id ->{PasarVentanas(this, "VerDatosUsuario")}
+            binding.iBtnCrearGasto.id ->{PasarVentanas(this, "FormularioNuevoGasto")}
         }
     }
 }

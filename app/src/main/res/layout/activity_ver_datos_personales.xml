@@ -3,11 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@color/fondo_oscuro"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VerDatosPersonales">
-
     <TextView
         android:id="@+id/textView4"
         style="@style/titulo_ventana"
@@ -223,5 +221,4 @@
         </TableLayout>
     </LinearLayout>
     <!-- BARRA BAJA FIN -->
-
 </androidx.constraintlayout.widget.ConstraintLayout>
