@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         val resultadoComprobacion = comprobarDb.comprobarDb()
 
         if(resultadoComprobacion != null) {
-            Toast.makeText(this, resultadoComprobacion, Toast.LENGTH_LONG).show()
             val intent = Intent(this, FormularioNuevoGasto::class.java)
             startActivity(intent)
         } else {

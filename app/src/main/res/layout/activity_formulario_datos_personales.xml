@@ -18,8 +18,10 @@
     <EditText
         android:id="@+id/inputName"
         android:drawableStart="@drawable/ic_usuario_blanco"
+        android:drawablePadding="10dp"
         android:layout_width="340dp"
         android:layout_height="43dp"
+        android:background="@null"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="text"
@@ -30,10 +32,13 @@
 
     <EditText
         android:id="@+id/inputApellidos"
+        android:drawableStart="@drawable/ic_usuario_blanco"
+        android:drawablePadding="10dp"
         android:layout_width="340dp"
         android:layout_height="43dp"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:background="@null"
         android:inputType="text"
         android:hint="Apellidos*"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,11 +47,14 @@
 
     <EditText
         android:id="@+id/inputEmail"
+        android:drawableStart="@drawable/ic_email_blanco"
+        android:drawablePadding="10dp"
         android:layout_width="340dp"
         android:layout_height="43dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="text"
+        android:background="@null"
         android:hint="Email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,10 +62,13 @@
 
     <EditText
         android:id="@+id/inputTelefono"
+        android:drawableStart="@drawable/ic_telefono_blanco"
+        android:drawablePadding="10dp"
         android:layout_width="340dp"
         android:layout_height="43dp"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:background="@null"
         android:inputType="phone"
         android:hint="Número de telefono"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,10 +77,13 @@
 
     <EditText
         android:id="@+id/inputSalarioMensual"
+        android:drawableStart="@drawable/ic_moneda_blanco"
+        android:drawablePadding="10dp"
         android:layout_width="340dp"
         android:layout_height="43dp"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:background="@null"
         android:inputType="numberDecimal"
         android:hint="Salario mensual"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,11 +92,14 @@
 
     <EditText
         android:id="@+id/inputDiaIngreso"
+        android:drawableStart="@drawable/ic_calendario_blanco"
+        android:drawablePadding="10dp"
         android:layout_width="340dp"
         android:layout_height="43dp"
         android:ems="10"
         android:layout_marginTop="10dp"
         android:inputType="number"
+        android:background="@null"
         android:hint="Ingreso salario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
