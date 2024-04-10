@@ -27,7 +27,6 @@ public class CrearDb extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY AUTOINCREMENT ," +
                 "cantidad_gasto DOUBLE NOT NULL ," +
                 "categoria_principal TEXT NOT NULL ," +
-                "categoria_secundaria TEXT NOT NULL," +
                 "descripcion TEXT," +
                 "fecha_gasto DATE)");
         sqLiteDatabase.execSQL("CREATE TABLE alarmas" + "(" +

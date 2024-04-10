@@ -7,125 +7,154 @@
     android:layout_height="match_parent"
     tools:context=".FormularioNuevoGasto">
 
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:background="@color/green"
-        android:gravity="center"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TableRow
-            android:gravity="center">
-            <TextView
-                android:id="@+id/textView2"
-                style="@style/titulo_ventana"
-                android:textColor="@color/black"
-                android:text="NUEVO INGRESO/GASTO"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </TableRow>
 
-        <TableRow>
-            <RadioGroup
-                android:id="@+id/radioGroup"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/btnGuardar">
+
+
+            <TableLayout
+                android:id="@+id/tableLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/green"
+                android:gravity="center">
+
+                <TableRow android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        style="@style/titulo_ventana"
+                        android:text="NUEVO INGRESO/GASTO"
+                        android:textColor="@color/black" />
+                </TableRow>
+
+                <TableRow>
+
+                    <RadioGroup
+                        android:id="@+id/rGroupIngresoGasto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:background="@color/barra_baja"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <RadioButton
+                            android:id="@+id/rBtnIngreso"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/green"
+                            android:text="INGRESO"
+                            android:textSize="20dp"
+                            tools:layout_editor_absoluteX="70dp"
+                            tools:layout_editor_absoluteY="587dp" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/red"
+                            android:text="GASTO"
+                            android:textSize="20dp"
+                            tools:layout_editor_absoluteX="70dp"
+                            tools:layout_editor_absoluteY="587dp" />
+                    </RadioGroup>
+                </TableRow>
+            </TableLayout>
+
+            <EditText
+                android:id="@+id/inputCantidadGasto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="10dp"
-                android:padding="5dp"
-                android:background="@color/barra_baja"
                 android:layout_gravity="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tableLayout">
+                android:background="@null"
+                android:ems="10"
+                android:hint="Cantidad"
+                android:inputType="numberDecimal"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/green"
+                android:textColorHint="@color/green"
+                android:textSize="35dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/catGasto"
+                android:layout_width="335dp"
+                android:layout_height="39dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:entries="@array/listaCategorias"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/editTextDescripcion"
+                android:layout_width="335dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Descripción (Puedes usar la descripción para poner los nombres de los productos que has comprado)"
+                android:inputType="textMultiLine" />
+
+            <RadioGroup
+                android:id="@+id/rGroupMetodoPago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <RadioButton
-                    android:id="@+id/rBtnIngreso"
+                    android:id="@+id/rBtnEfectivo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="INGRESO"
+                    android:text="EFECTIVO"
                     android:textSize="20dp"
-                    android:buttonTint="@color/green"
                     tools:layout_editor_absoluteX="70dp"
                     tools:layout_editor_absoluteY="587dp" />
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/radioTarjeta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="GASTO"
+                    android:text="TARJETA"
                     android:textSize="20dp"
-                    android:buttonTint="@color/red"
                     tools:layout_editor_absoluteX="70dp"
                     tools:layout_editor_absoluteY="587dp" />
             </RadioGroup>
-        </TableRow>
-    </TableLayout>
 
-    <EditText
-        android:id="@+id/inputCantidadGasto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:ems="10"
-        android:hint="Cantidad"
-        android:inputType="numberDecimal"
-        android:padding="5dp"
-        android:textAlignment="center"
-        android:textColor="@color/green"
-        android:textColorHint="@color/green"
-        android:textSize="35dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
-
-    <Spinner
-        android:id="@+id/catGasto"
-        android:layout_width="335dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="10dp"
-        android:entries="@array/listaCategorias"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputCantidadGasto" />
-
-    <Spinner
-        android:id="@+id/subCatGasto"
-        android:layout_width="335dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="10dp"
-        android:entries="@array/listaSubCategorias"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/catGasto" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="310dp"
-        android:layout_height="226dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="Descripción (Puedes usar la descripción para poner los nombres de los productos que has comprado)"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subCatGasto" />
+            <CalendarView
+                android:id="@+id/calendarView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/btnGuardar"
-        android:layout_width="282dp"
-        android:layout_height="82dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="315dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/barra_baja"
         android:text="GUARDAR"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- BARRA BAJA INICIO -->
     <LinearLayout

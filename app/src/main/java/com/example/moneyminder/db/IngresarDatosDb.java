@@ -9,6 +9,8 @@ import androidx.annotation.Nullable;
 
 import com.example.moneyminder.db.CrearDb;
 
+import java.util.Date;
+
 public class IngresarDatosDb extends CrearDb {
     Context context;
     public IngresarDatosDb(@Nullable Context context) {
@@ -34,5 +36,10 @@ public class IngresarDatosDb extends CrearDb {
         long id = db.insert("datos_personales", null, valores);
         return id;
     }
+
+    /*public long insertarDatosNuevoGasto(double contidad_gasto, String categoria_principal, String categoria_secundaria, String descripcion, String metodo_pago, Date fecha_gasto){
+
+    }*/
+
 
 }
