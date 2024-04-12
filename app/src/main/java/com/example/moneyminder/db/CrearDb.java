@@ -27,15 +27,23 @@ public class CrearDb extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY AUTOINCREMENT ," +
                 "cantidad_gasto DOUBLE NOT NULL ," +
                 "categoria_principal TEXT NOT NULL ," +
+                "metodo_pago TEXT NOT NULL ," +
                 "descripcion TEXT," +
-                "fecha_gasto DATE)");
+                "fecha_gasto TEXT)");
+        sqLiteDatabase.execSQL("CREATE TABLE ingresos" + "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT ," +
+                "cantidad_ingreso DOUBLE NOT NULL ," +
+                "procedencia_ingreso TEXT NOT NULL ," +
+                "metodo_ingreso TEXT NOT NULL ," +
+                "descripcion TEXT," +
+                "fecha_ingreso TEXT)");
         sqLiteDatabase.execSQL("CREATE TABLE alarmas" + "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "categoria_alarma TEXT NOT NULL," +
                 "veces_repetir INT NOT NULL," +
                 "importe DOUBLE NOT NULL," +
                 "dia_alarma INT NOT NULL," +
-                "fecha_creacion DATE NOT NULL)");
+                "fecha_creacion TEXT NOT NULL)");
 
     }
 

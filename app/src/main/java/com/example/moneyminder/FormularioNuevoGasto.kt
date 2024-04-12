@@ -8,15 +8,21 @@ import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.i18n.DateTimeFormatter
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.moneyminder.databinding.ActivityFormularioNuevoGastoBinding
+import com.example.moneyminder.db.IngresarDatosDb
+import java.lang.String.format
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 
 class FormularioNuevoGasto : AppCompatActivity(), OnClickListener {
 
+    private lateinit var fechaSeleccionada: Date
     private lateinit var binding: ActivityFormularioNuevoGastoBinding
     val calendario = Calendar.getInstance()
     var fecha: DatePickerDialog.OnDateSetListener? = null;
@@ -30,11 +36,14 @@ class FormularioNuevoGasto : AppCompatActivity(), OnClickListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         actualizarFecha(calendario)
+        fechaSeleccionada = calendario.time
         fecha = DatePickerDialog.OnDateSetListener{ datepicker, year, month, day ->
             calendario.set(Calendar.YEAR, year)
             calendario.set(Calendar.MONTH, month)
             calendario.set(Calendar.DAY_OF_YEAR, day)
+            fechaSeleccionada = calendario.time
             actualizarFecha(calendario)
         }
 
@@ -66,18 +75,26 @@ class FormularioNuevoGasto : AppCompatActivity(), OnClickListener {
                 ).show()
             }
             binding.btnGuardar.id -> {
+                if(binding.inputCantidadGasto.text.toString() == ""){binding.inputCantidadGasto.setText("0")}
                 //Extraemos los datos del formulario
                 val cantidad_gasto = binding.inputCantidadGasto.text.toString()
                 val categoria_principal = binding.catGasto.selectedItem.toString()
                 val descripcion = binding.editTextDescripcion.text.toString()
                 val ingresoGasto = findViewById<RadioButton>(binding.rGroupIngresoGasto.checkedRadioButtonId).text.toString()
-                val fechaIngresoGasto = binding.textFecha.text.toString()
+                val metodoPago = findViewById<RadioButton>(binding.rGroupMetodoPago.checkedRadioButtonId).text.toString()
 
+                //Diferenciamos entre ingreso y gasto
+
+
+                //Ingresamos los datos en la base de datos.
+                var ingresarDatosDb = IngresarDatosDb(this)
+                ingresarDatosDb.insertarDatosNuevoGasto(cantidad_gasto.toDouble(),categoria_principal,descripcion,metodoPago,fechaSeleccionada)
 
             }
         }
     }
 
+    //Actualiza la fecha en el "textFecha"
     private fun actualizarFecha(calendar: Calendar){
         val formatoFecha = "dd-MM-yyyy"
         val formatoSimple = SimpleDateFormat(formatoFecha, Locale.ENGLISH)
