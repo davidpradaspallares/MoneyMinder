@@ -27,7 +27,7 @@
                 android:id="@+id/tableLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/green"
+                android:background="@color/red"
                 android:gravity="center">
 
                 <TableRow android:gravity="center">
@@ -58,7 +58,6 @@
                             android:buttonTint="@color/green"
                             android:text="INGRESO"
                             android:textSize="20dp"
-                            android:checked="true"
                             tools:layout_editor_absoluteX="70dp"
                             tools:layout_editor_absoluteY="587dp" />
 
@@ -68,6 +67,7 @@
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/red"
                             android:text="GASTO"
+                            android:checked="true"
                             android:textSize="20dp"
                             tools:layout_editor_absoluteX="70dp"
                             tools:layout_editor_absoluteY="587dp" />
@@ -86,20 +86,111 @@
                 android:inputType="numberDecimal"
                 android:padding="5dp"
                 android:textAlignment="center"
-                android:textColor="@color/green"
-                android:textColorHint="@color/green"
+                android:textColor="@color/red"
+                android:textColorHint="@color/red"
                 android:textSize="35dp"
                 android:textStyle="bold" />
 
-            <Spinner
-                android:id="@+id/catGasto"
-                android:layout_width="335dp"
-                android:layout_height="39dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:entries="@array/listaCategorias"
-                android:textAlignment="center" />
+            <LinearLayout
+                android:id="@+id/grupoIngreso"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
+                <Spinner
+                    android:id="@+id/procedenciaIngreso"
+                    android:layout_width="335dp"
+                    android:layout_height="39dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:entries="@array/procedenciaIngreso"
+                    android:textAlignment="center" />
+
+                <RadioGroup
+                    android:id="@+id/rGroupMetodoIngreso"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <RadioButton
+                        android:id="@+id/rBtnIngresoEfectivo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="EFECTIVO"
+                        android:textSize="20dp"
+                        tools:layout_editor_absoluteX="70dp"
+                        tools:layout_editor_absoluteY="587dp" />
+
+                    <RadioButton
+                        android:id="@+id/rBtnTransferencia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="TRANSFERENCIA"
+                        android:textSize="20dp"
+                        tools:layout_editor_absoluteX="70dp"
+                        tools:layout_editor_absoluteY="587dp" />
+                    <RadioButton
+                        android:id="@+id/rBtnBizum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Bizum"
+                        android:textSize="20dp"
+                        tools:layout_editor_absoluteX="70dp"
+                        tools:layout_editor_absoluteY="587dp" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/grupoGasto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <Spinner
+                    android:id="@+id/catGasto"
+                    android:layout_width="335dp"
+                    android:layout_height="39dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:entries="@array/listaCategorias"
+                    android:textAlignment="center" />
+
+
+                <RadioGroup
+                    android:id="@+id/rGroupMetodoPago"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <RadioButton
+                        android:id="@+id/rBtnEfectivo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="EFECTIVO"
+                        android:textSize="20dp"
+                        tools:layout_editor_absoluteX="70dp"
+                        tools:layout_editor_absoluteY="587dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioTarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="TARJETA"
+                        android:textSize="20dp"
+                        tools:layout_editor_absoluteX="70dp"
+                        tools:layout_editor_absoluteY="587dp" />
+                </RadioGroup>
+            </LinearLayout>
             <EditText
                 android:id="@+id/editTextDescripcion"
                 android:layout_width="335dp"
@@ -110,36 +201,6 @@
                 android:gravity="start|top"
                 android:hint="Descripción (Puedes usar la descripción para poner los nombres de los productos que has comprado)"
                 android:inputType="textMultiLine" />
-
-            <RadioGroup
-                android:id="@+id/rGroupMetodoPago"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:orientation="horizontal"
-                android:padding="5dp">
-
-                <RadioButton
-                    android:id="@+id/rBtnEfectivo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="EFECTIVO"
-                    android:textSize="20dp"
-                    tools:layout_editor_absoluteX="70dp"
-                    tools:layout_editor_absoluteY="587dp" />
-
-                <RadioButton
-                    android:id="@+id/radioTarjeta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="TARJETA"
-                    android:textSize="20dp"
-                    tools:layout_editor_absoluteX="70dp"
-                    tools:layout_editor_absoluteY="587dp" />
-            </RadioGroup>
-
             <LinearLayout
                 android:id="@+id/lLayoutFechaGasto"
                 android:layout_width="match_parent"
@@ -157,7 +218,7 @@
                     android:id="@+id/textFecha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Fecha del gasto"
+                    android:text="Fecha"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
                     android:textSize="20dp" />
@@ -172,7 +233,7 @@
         android:layout_width="315dp"
         android:layout_height="51dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/barra_baja"
+        android:background="@color/red"
         android:text="GUARDAR"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"

@@ -8,6 +8,7 @@ import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.i18n.DateTimeFormatter
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -53,7 +54,8 @@ class FormularioNuevoGasto : AppCompatActivity(), OnClickListener {
         binding.iBtnCrearGasto.setOnClickListener(this)
         binding.btnGuardar.setOnClickListener(this)
         binding.lLayoutFechaGasto.setOnClickListener(this)
-
+        binding.rBtnIngreso.setOnClickListener(this)
+        binding.radioButton.setOnClickListener(this)
 
     }
 
@@ -63,6 +65,23 @@ class FormularioNuevoGasto : AppCompatActivity(), OnClickListener {
             binding.iBtnAlert.id ->{PasarVentanas(this, "PanelControlAlarma")}
             binding.iBtnUser.id ->{PasarVentanas(this, "VerDatosUsuario")}
             binding.iBtnCrearGasto.id ->{PasarVentanas(this, "FormularioNuevoGasto")}
+            //Creamos la diferenciación visual entre ingreso y gasto
+            binding.rBtnIngreso.id -> {
+                val miColorVerde = ContextCompat.getColor(this, R.color.green)
+                binding.tableLayout.setBackgroundColor(miColorVerde)
+                binding.btnGuardar.setBackgroundColor(miColorVerde)
+                binding.inputCantidadGasto.setBackgroundColor(miColorVerde)
+                binding.grupoIngreso.visibility = View.VISIBLE
+                binding.grupoGasto.visibility = View.GONE
+            }
+            binding.radioButton.id -> {
+                val miColor = ContextCompat.getColor(this, R.color.red)
+                binding.tableLayout.setBackgroundColor(miColor)
+                binding.btnGuardar.setBackgroundColor(miColor)
+                binding.inputCantidadGasto.setBackgroundColor(miColor)
+                binding.grupoIngreso.visibility = View.GONE
+                binding.grupoGasto.visibility = View.VISIBLE
+            }
             binding.lLayoutFechaGasto.id -> {
 
                 DatePickerDialog(
@@ -82,13 +101,15 @@ class FormularioNuevoGasto : AppCompatActivity(), OnClickListener {
                 val descripcion = binding.editTextDescripcion.text.toString()
                 val ingresoGasto = findViewById<RadioButton>(binding.rGroupIngresoGasto.checkedRadioButtonId).text.toString()
                 val metodoPago = findViewById<RadioButton>(binding.rGroupMetodoPago.checkedRadioButtonId).text.toString()
+                val procedenciaIngreso = binding.procedenciaIngreso.selectedItem.toString()
+                val metodoIngreso = findViewById<RadioButton>(binding.rGroupMetodoIngreso.checkedRadioButtonId).text.toString()
 
-                //Diferenciamos entre ingreso y gasto
-
-
-                //Ingresamos los datos en la base de datos.
                 var ingresarDatosDb = IngresarDatosDb(this)
-                ingresarDatosDb.insertarDatosNuevoGasto(cantidad_gasto.toDouble(),categoria_principal,descripcion,metodoPago,fechaSeleccionada)
+                //Diferenciamos entre ingreso y gasto Y Ingresamos los datos en la base de datos.
+                when(ingresoGasto){
+                    "INGRESO" -> {}
+                    "GASTO" -> {ingresarDatosDb.insertarDatosNuevoGasto(cantidad_gasto.toDouble(),categoria_principal,descripcion,metodoPago,fechaSeleccionada)}
+                }
 
             }
         }
