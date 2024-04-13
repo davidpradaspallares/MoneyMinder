@@ -107,7 +107,7 @@ class FormularioNuevoGasto : AppCompatActivity(), OnClickListener {
                 var ingresarDatosDb = IngresarDatosDb(this)
                 //Diferenciamos entre ingreso y gasto Y Ingresamos los datos en la base de datos.
                 when(ingresoGasto){
-                    "INGRESO" -> {}
+                    "INGRESO" -> {ingresarDatosDb.insertarDatosNuevoIngreso(cantidad_gasto.toDouble(),procedenciaIngreso,descripcion,metodoIngreso,fechaSeleccionada)}
                     "GASTO" -> {ingresarDatosDb.insertarDatosNuevoGasto(cantidad_gasto.toDouble(),categoria_principal,descripcion,metodoPago,fechaSeleccionada)}
                 }
 
