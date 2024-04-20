@@ -39,6 +39,22 @@ public class IngresarDatosDb extends CrearDb {
         return id;
     }
 
+    public long ingresarPrueba(){
+        CrearDb crearDb = new CrearDb(context);
+        SQLiteDatabase db = crearDb.getWritableDatabase();
+
+        ContentValues valores = new ContentValues();
+        valores.put("nombre", "David");
+        valores.put("apellidos", "Pradas Pallares");
+        valores.put("correo_electronico", "david28122000@gmail.com");
+        valores.put("telefono", 683555250);
+        valores.put("salario_mensual", 1090.53);
+        valores.put("dia_ingreso_salario", 10);
+
+        long id = db.insert("datos_personales", null, valores);
+        return id;
+    }
+
     public long insertarDatosNuevoGasto(double cantidad_gasto, String categoria_principal, String descripcion, String metodo_pago, Date fecha_gasto){
         CrearDb crearDb = new CrearDb(context);
         SQLiteDatabase db = crearDb.getWritableDatabase();
