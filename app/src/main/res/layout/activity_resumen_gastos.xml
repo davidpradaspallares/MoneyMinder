@@ -74,141 +74,187 @@
                 android:layout_marginTop="15dp"
                 android:background="@color/white"
                 android:text="LISTAR CATEGORÍAS" />
-
-            <TextView
+            <!-- GASTOS TOTALES | DINERO RESTANTE -->
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="GASTOS TOTALES"
-                android:textSize="30dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textGastoTotal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="XXXXX€"
-                android:textColor="@color/red"
-                android:textSize="25dp" />
+                android:layout_height="wrap_content">
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="GASTOS TOTALES"
+                        android:textSize="35dp"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/textGastoTotal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="XXXXX€"
+                        android:textColor="@color/red"
+                        android:textSize="40dp" />
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="DINERO RESTANTE"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/textDineroRestante"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="XXXXX€"
+                        android:textColor="@color/green"
+                        android:textSize="25dp" />
+                </TableRow>
+            </TableLayout>
             <!-- CATEGORIAS MAYOR GASTO -->
 
-            <TextView
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="CAT MAYOR GASTO"
-                android:textSize="30dp"
-                android:textStyle="bold" />
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="CAT MAYOR GASTO"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/text4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="1 | "
+                        android:textSize="25dp" />
+                    <TextView
+                        android:id="@+id/textGastoCat1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Categoría_1 - X"
+                        android:textSize="25dp" />
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/text5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="2 | "
+                        android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/textGastoCat2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Categoría_2 - X"
+                        android:textSize="20dp" />
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/text6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="3 | "
+                        android:textSize="17dp" />
+                    <TextView
+                        android:id="@+id/textGastoCat3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Categoría_3 - X"
+                        android:textSize="17dp" />
+                </TableRow>
+            </TableLayout>
+            <!--CATEGORIA MAS RECURRENTE-->
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="CAT MAS RECURRENTE"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="1 | "
+                        android:textSize="25dp" />
+                    <TextView
+                        android:id="@+id/textGastoMasRc1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Categoría_1 - X"
+                        android:textSize="25dp" />
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/text1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="2 | "
+                        android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/textGastoMasRc2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Categoría_2 - X"
+                        android:textSize="20dp" />
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/text3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="3 | "
+                        android:textSize="17dp" />
+                    <TextView
+                        android:id="@+id/textGastoMasRc3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Categoría_3 - X"
+                        android:textSize="17dp" />
+                </TableRow>
+            </TableLayout>
 
-            <TextView
-                android:id="@+id/textGastoCat1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="1 | Categoría_1 - X€"
-                android:textSize="25dp" />
 
-            <TextView
-                android:id="@+id/textGastoCat2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="2 | Categoría_1 - X€"
-                android:textSize="25dp" />
 
-            <TextView
-                android:id="@+id/textGastoCat3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="3 | Categoría_1 - X€"
-                android:textSize="25dp" />
-
-            <!-- SUB CATEGORIA MAYOR GASTO -->
-            <!--<TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="SUB CAT MAYOR GASTO"
-                android:textSize="30dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textGastoSubCat1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="1 | Categoría_1 - X€"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/textGastoSubCat2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="2 | Categoría_1 - X€"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/textGastoSubCat3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="3 | Categoría_1 - X€"
-                android:textSize="25dp" />-->
-            <!-- CATEGORIA MAS RECURRENTE -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="CAT MAS RECURRENTE"
-                android:textSize="30dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textGastoMasRc1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="1 | Categoría_1 - X"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/textGastoMasRc2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="2 | Categoría_1 - X"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/textGastoMasRc3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="3 | Categoría_1 - X"
-                android:textSize="25dp" />
             <!-- SUB CATEGORIA MAS RECURRENTE -->
             <!--<TextView
                 android:layout_width="match_parent"

@@ -55,23 +55,29 @@ public class IngresarDatosDb extends CrearDb {
         return id;
     }
 
-    public long insertarDatosNuevoGasto(double cantidad_gasto, String categoria_principal, String descripcion, String metodo_pago, Date fecha_gasto){
+    public long insertarDatosNuevoGasto(double cantidad_gasto, String categoria_principal, String descripcion, String metodo_pago, Date fecha_gasto) {
         CrearDb crearDb = new CrearDb(context);
         SQLiteDatabase db = crearDb.getWritableDatabase();
 
-        //Insertamos los registros
-        ContentValues valores = new ContentValues();
-        valores.put("cantidad_gasto", cantidad_gasto);
-        valores.put("categoria_principal", categoria_principal);
-        valores.put("metodo_pago", metodo_pago);
-        valores.put("descripcion", descripcion);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        String fechaFormateada = sdf.format(fecha_gasto);
-        valores.put("fecha_gasto", fechaFormateada);
+        long id = 0;
+        for (int i = 0; i < 100; i++) {
+            //Insertamos los registros
+            ContentValues valores = new ContentValues();
+            valores.put("cantidad_gasto", cantidad_gasto);
+            valores.put("categoria_principal", categoria_principal);
+            valores.put("metodo_pago", metodo_pago);
+            valores.put("descripcion", descripcion);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            String fechaFormateada = sdf.format(fecha_gasto);
+            valores.put("fecha_gasto", fechaFormateada);
 
-        long id = db.insert("gastos", null, valores);
+            id = db.insert("gastos", null, valores);
+
+        }
+
         return id;
     }
+
 
     public long insertarDatosNuevoIngreso(double cantidad_ingreso, String procedencia_ingreso, String descripcion, String metodo_ingreso, Date fecha_ingreso){
         CrearDb crearDb = new CrearDb(context);
