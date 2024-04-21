@@ -80,14 +80,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@null"
+                android:background="@color/red"
                 android:ems="10"
                 android:hint="Cantidad"
                 android:inputType="numberDecimal"
                 android:padding="5dp"
                 android:textAlignment="center"
-                android:textColor="@color/red"
-                android:textColorHint="@color/red"
+                android:textColorHint="@color/black"
                 android:textSize="35dp"
                 android:textStyle="bold" />
 
