@@ -27,10 +27,12 @@ class MainActivity : AppCompatActivity() {
         if(resultadoComprobacion != null) {
             val intent = Intent(this, FormularioNuevoGasto::class.java)
             startActivity(intent)
+            finish()
         } else {
             Toast.makeText(this, "No hay datos en la base de datos", Toast.LENGTH_LONG).show()
             val intent = Intent(this, FormularioDatosPersonales::class.java)
             startActivity(intent)
+            finish()
         }
 
 

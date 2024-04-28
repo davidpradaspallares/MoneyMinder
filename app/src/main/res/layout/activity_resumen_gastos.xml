@@ -30,31 +30,29 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnUlt30dias"
+                    android:id="@+id/btnFiltroPorDefecto"
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@color/white" />
+
+                <Button
+                    android:id="@+id/btnFiltroEsteAno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@color/white"
-                    android:text="ULT 30D" />
+                    android:text="ESTE AÑO" />
 
                 <Button
-                    android:id="@+id/btnUltMes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:background="@color/green"
-                    android:text="ULT MES" />
-
-                <Button
-                    android:id="@+id/btnUltAño"
+                    android:id="@+id/btnTodosLosRegistros"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@color/white"
-                    android:text="ULT AÑO" />
+                    android:text="TOTAL" />
             </LinearLayout>
 
             <Button

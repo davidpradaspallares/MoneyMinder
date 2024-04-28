@@ -1,14 +1,19 @@
 <resources>
     <string name="app_name">MoneyMinder</string>
     <string-array name="listaCategorias">
-        <item>Categoría gasto</item>
+        <item>Capricho</item>
+        <item>Ocio</item>
         <item>Alimentos</item>
+        <item>Vivienda</item>
+        <item>Suministros</item>
         <item>Suscripción</item>
+        <item>Salud</item>
+        <item>Educación</item>
         <item>Prestamo</item>
         <item>Mantenimiento</item>
-        <item>Capricho</item>
-        <item>Suministros</item>
         <item>Viajes</item>
+        <item>Ahorros</item>
+        <item>Otros</item>
     </string-array>
     <string-array name="listaIngresoGasto">
         <item>Categoría alarma</item>
@@ -16,8 +21,8 @@
         <item>Gasto</item>
     </string-array>
     <string-array name="procedenciaIngreso">
-        <item>Prestamo</item>
         <item>Salario</item>
+        <item>Prestamo</item>
         <item>Devolución prestamo</item>
         <item>Negocio extra</item>
     </string-array>

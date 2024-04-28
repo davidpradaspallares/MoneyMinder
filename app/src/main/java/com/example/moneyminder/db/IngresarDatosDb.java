@@ -60,7 +60,7 @@ public class IngresarDatosDb extends CrearDb {
         SQLiteDatabase db = crearDb.getWritableDatabase();
 
         long id = 0;
-        for (int i = 0; i < 100; i++) {
+        /*for (int i = 0; i < 100; i++) {
             //Insertamos los registros
             ContentValues valores = new ContentValues();
             valores.put("cantidad_gasto", cantidad_gasto);
@@ -72,8 +72,18 @@ public class IngresarDatosDb extends CrearDb {
             valores.put("fecha_gasto", fechaFormateada);
 
             id = db.insert("gastos", null, valores);
+        }*/
+        //Insertamos los registros
+        ContentValues valores = new ContentValues();
+        valores.put("cantidad_gasto", cantidad_gasto);
+        valores.put("categoria_principal", categoria_principal);
+        valores.put("metodo_pago", metodo_pago);
+        valores.put("descripcion", descripcion);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String fechaFormateada = sdf.format(fecha_gasto);
+        valores.put("fecha_gasto", fechaFormateada);
 
-        }
+        id = db.insert("gastos", null, valores);
 
         return id;
     }

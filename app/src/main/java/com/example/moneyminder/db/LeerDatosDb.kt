@@ -3,6 +3,7 @@ package com.example.moneyminder.db
 import android.database.sqlite.SQLiteDatabase
 import com.example.moneyminder.model_de_datos.Gastos
 import com.example.moneyminder.model_de_datos.Ingresos
+import com.example.moneyminder.model_de_datos.Usuario
 
 class LeerDatosDb {
 
@@ -43,6 +44,79 @@ class LeerDatosDb {
         }
         cursor.close()
         return listaDatosIngreso
+    }
+    fun leerDatosUsuario(db: SQLiteDatabase): MutableList<Usuario>{
+        val cursor = db.rawQuery("SELECT * FROM datos_personales", null)
+        val listaDatosUsuario = mutableListOf<Usuario>()
+
+        while (cursor.moveToNext()) {
+            val nombre = cursor.getString(0)
+            val apellidos = cursor.getString(1)
+            val correoElectronico = cursor.getString(2)
+            val telefono = cursor.getInt(3)
+            val salarioMensual = cursor.getDouble(4)
+            val diaIngresoSalario = cursor.getInt(5)
+
+            listaDatosUsuario.add(Usuario(nombre, apellidos,correoElectronico,telefono,salarioMensual,diaIngresoSalario))
+        }
+        cursor.close()
+        return listaDatosUsuario
+    }
+    fun leerCategoriasGastos(db: SQLiteDatabase): MutableList<String> {
+        val cursor = db.rawQuery("" +
+                "SELECT categoria_principal, COUNT(*) AS conteo_repeticiones\n" +
+                "FROM gastos\n" +
+                "GROUP BY categoria_principal\n" +
+                "ORDER BY conteo_repeticiones DESC;", null)
+        val categorias = mutableListOf<String>()
+
+        while (cursor.moveToNext()) {
+            val categoria = cursor.getString(0)
+            categorias.add(categoria)
+
+        }
+        cursor.close()
+
+        return categorias
+    }
+    fun leerCantidadVecesCategorias(db: SQLiteDatabase): MutableList<Int>{
+        val cursor = db.rawQuery("" +
+                "SELECT categoria_principal, COUNT(*) AS conteo_repeticiones\n" +
+                "FROM gastos\n" +
+                "GROUP BY categoria_principal\n" +
+                "ORDER BY conteo_repeticiones DESC;", null)
+        val conteo = mutableListOf<Int>()
+        while (cursor.moveToNext()) {
+            conteo.add(cursor.getInt(1))
+        }
+        cursor.close()
+        return conteo
+    }
+    fun leerCategoriaMayorGasto(db: SQLiteDatabase): MutableList<String>{
+        val cursor = db.rawQuery("" +
+                "SELECT categoria_principal, SUM(cantidad_gasto) AS gasto_total\n" +
+                "FROM gastos\n" +
+                "GROUP BY categoria_principal\n" +
+                "ORDER BY gasto_total DESC;", null)
+        val listaCategorias = mutableListOf<String>()
+        while (cursor.moveToNext()) {
+            listaCategorias.add(cursor.getString(0))
+        }
+        cursor.close()
+        return  listaCategorias
+    }
+    fun leerSumaEconomicaCategorias(db: SQLiteDatabase): MutableList<Int>{
+        val cursor = db.rawQuery("" +
+                "SELECT categoria_principal, SUM(cantidad_gasto) AS gasto_total\n" +
+                "FROM gastos\n" +
+                "GROUP BY categoria_principal\n" +
+                "ORDER BY gasto_total DESC;", null)
+        val listaTotalGasto = mutableListOf<Int>()
+        while (cursor.moveToNext()) {
+            listaTotalGasto.add(cursor.getInt(1))
+        }
+        cursor.close()
+        return listaTotalGasto
     }
 
 
