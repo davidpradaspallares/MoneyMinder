@@ -1,6 +1,5 @@
 package com.example.moneyminder
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
@@ -8,13 +7,17 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.moneyminder.databinding.ActivityMainBinding
-import com.example.moneyminder.databinding.ActivityResumenGastosBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.moneyminder.RecicleView.GastosAdapter
+import com.example.moneyminder.databinding.ActivityListarIngresosGastosBinding
+import com.example.moneyminder.db.CrearDb
+import com.example.moneyminder.db.LeerDatosDb
 
-class ResumenGastos : AppCompatActivity(), OnClickListener {
-    private lateinit var binding: ActivityResumenGastosBinding
+class ListarIngresosGastos : AppCompatActivity(), OnClickListener {
+    private lateinit var binding: ActivityListarIngresosGastosBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityResumenGastosBinding.inflate(layoutInflater)
+        binding = ActivityListarIngresosGastosBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
@@ -28,13 +31,12 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
         binding.iBtnAlert.setOnClickListener(this)
         binding.iBtnUser.setOnClickListener(this)
         binding.iBtnCrearGasto.setOnClickListener(this)
-        binding.btnListarGastos.setOnClickListener{
-            var intent = Intent(this, ListarIngresosGastos::class.java)
-            startActivity(intent)
+        binding.iBtnMostrarMas.setOnClickListener(){
+            binding.masBotonesLayout.
         }
 
+        iniciarRecicleViewGastos()
     }
-
     override fun onClick(v: View?) {
         when(v?.id){
             binding.iBtnStatistics.id ->{PasarVentanas(this, "ResumenGastos")}
@@ -42,5 +44,14 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
             binding.iBtnUser.id ->{PasarVentanas(this, "VerDatosUsuario")}
             binding.iBtnCrearGasto.id ->{PasarVentanas(this, "FormularioNuevoGasto")}
         }
+    }
+    fun iniciarRecicleViewGastos(){
+        var crearDb = CrearDb(this)
+        val db = crearDb.writableDatabase
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recicleViewIngresosGastos)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = GastosAdapter(LeerDatosDb().leerGastos(db))
+        db.close()
     }
 }

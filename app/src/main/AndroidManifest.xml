@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MoneyMinder"
         tools:targetApi="31">
         <activity
+            android:name=".ListarIngresosGastos"
+            android:exported="false" />
+        <activity
             android:name=".VerDatosPersonales"
             android:exported="false" />
         <activity
@@ -29,7 +32,7 @@
             android:exported="false" />
         <activity
             android:name=".FormularioNuevaAlarma"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".FormularioNuevoGasto"
             android:exported="true" />

@@ -6,4 +6,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green">#64E878</color>
     <color name="red">#EB352C</color>
+    <color name="fondo_gasto">#75B65E</color>
 </resources>
