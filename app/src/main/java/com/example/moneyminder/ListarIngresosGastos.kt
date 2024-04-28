@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moneyminder.RecicleView.GastosAdapter
@@ -31,9 +32,7 @@ class ListarIngresosGastos : AppCompatActivity(), OnClickListener {
         binding.iBtnAlert.setOnClickListener(this)
         binding.iBtnUser.setOnClickListener(this)
         binding.iBtnCrearGasto.setOnClickListener(this)
-        binding.iBtnMostrarMas.setOnClickListener(){
-            binding.masBotonesLayout.
-        }
+        binding.iBtnMostrarMas.setOnClickListener(this)
 
         iniciarRecicleViewGastos()
     }
@@ -43,6 +42,14 @@ class ListarIngresosGastos : AppCompatActivity(), OnClickListener {
             binding.iBtnAlert.id ->{PasarVentanas(this, "PanelControlAlarma")}
             binding.iBtnUser.id ->{PasarVentanas(this, "VerDatosUsuario")}
             binding.iBtnCrearGasto.id ->{PasarVentanas(this, "FormularioNuevoGasto")}
+            binding.iBtnMostrarMas.id ->{
+                //Mostramos o ocultamos los botones de INGRESOS y GASTOS
+                if(binding.masBotonesLayout.isVisible){
+                    binding.masBotonesLayout.visibility = View.GONE
+                }else{
+                    binding.masBotonesLayout.visibility = View.VISIBLE
+                }
+            }
         }
     }
     fun iniciarRecicleViewGastos(){
