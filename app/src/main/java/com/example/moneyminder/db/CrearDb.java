@@ -49,9 +49,9 @@ public class CrearDb extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        sqLiteDatabase.execSQL("DROP TABLE datos_personales");
+        /*sqLiteDatabase.execSQL("DROP TABLE datos_personales");
         sqLiteDatabase.execSQL("DROP TABLE gastos");
         sqLiteDatabase.execSQL("DROP TABLE alarmas");
-        onCreate(sqLiteDatabase);
+        onCreate(sqLiteDatabase);*/
     }
 }
