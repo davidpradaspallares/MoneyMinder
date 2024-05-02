@@ -57,18 +57,31 @@ class SacarDatosResumenDatos(val context: Context) {
             }
             contador = 0
             var fecha = "0" + (obtenerMesYAnioActual().substring(0,2).toInt()-1) + "-" + obtenerMesYAnioActual().substring(3)
-            for(item in listaGastos){//Sacamos los datos del mes en curso.
-                Toast.makeText(context, listaGastos[contador].fechaGasto.toString().substring(3).toString(), Toast.LENGTH_SHORT).show()
+            for(item in listaGastos){//Sacamos los datos del mes anterior.
                 if(listaGastos[contador].fechaGasto.toString().substring(3) == fecha &&
                     listaGastos[contador].fechaGasto.toString().substring(0,2).toInt() >= 10  ){
                     gastoTotal += listaGastos[contador].cantidadGasto
-                    Toast.makeText(context, fecha.toString(), Toast.LENGTH_SHORT).show()
+                }
+                contador++
+            }
+        }else if(LocalDate.now().dayOfMonth > LeerDatosDb().getDiaIngresoSalario(db)){
+            contador = 0
+            for(item in listaGastos){//Sacamos los datos del mes en curso.
+                if(listaGastos[contador].fechaGasto.toString().substring(3) == obtenerMesYAnioActual().toString() &&
+                    listaGastos[contador].fechaGasto.toString().substring(0,2).toInt() >= 10  ){
+                    gastoTotal += listaGastos[contador].cantidadGasto
+                }
+                contador++
+            }
+            var fecha = "0" + (obtenerMesYAnioActual().substring(0,2).toInt()+1) + "-" + obtenerMesYAnioActual().substring(3)
+            for(item in listaGastos){//Sacamos los datos del mes posterior.
+                if(listaGastos[contador].fechaGasto.toString().substring(3) == fecha &&
+                    listaGastos[contador].fechaGasto.toString().substring(0,2).toInt() <= 9  ){
+                    gastoTotal += listaGastos[contador].cantidadGasto
                 }
                 contador++
             }
 
-
-            //Toast.makeText(context, fecha.toString(), Toast.LENGTH_SHORT).show()
         }
         return  gastoTotal
     }
