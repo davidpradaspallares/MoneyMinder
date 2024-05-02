@@ -2,11 +2,13 @@ package com.example.moneyminder
 
 import android.content.Context
 import android.os.Bundle
+import android.widget.Toast
 import com.example.moneyminder.db.CrearDb
 import com.example.moneyminder.db.LeerDatosDb
 import com.example.moneyminder.model_de_datos.Gastos
 import com.example.moneyminder.model_de_datos.Usuario
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
@@ -38,6 +40,39 @@ class SacarDatosResumenDatos(val context: Context) {
         return gastoTotal
 
     }
+
+    // Tu mes: 30 dias teniendo en cuenta el día en el que cobras.
+    fun sumarGastosTuMes(): Double{
+        var listaGastos: List<Gastos> = LeerDatosDb().leerGastos(db)
+        var gastoTotal = 0.00
+        var contador = 0
+        //Comprobamos si este mes hemos sobrepasado el dia de ingreso
+        if (LocalDate.now().dayOfMonth < LeerDatosDb().getDiaIngresoSalario(db)){ //Si es anterior al 10
+            for(item in listaGastos){//Sacamos los datos del mes en curso.
+                if(listaGastos[contador].fechaGasto.toString().substring(3) == obtenerMesYAnioActual().toString() &&
+                    listaGastos[contador].fechaGasto.toString().substring(0,2).toInt() <= 9  ){
+                    gastoTotal += listaGastos[contador].cantidadGasto
+                }
+                contador++
+            }
+            contador = 0
+            var fecha = "0" + (obtenerMesYAnioActual().substring(0,2).toInt()-1) + "-" + obtenerMesYAnioActual().substring(3)
+            for(item in listaGastos){//Sacamos los datos del mes en curso.
+                Toast.makeText(context, listaGastos[contador].fechaGasto.toString().substring(3).toString(), Toast.LENGTH_SHORT).show()
+                if(listaGastos[contador].fechaGasto.toString().substring(3) == fecha &&
+                    listaGastos[contador].fechaGasto.toString().substring(0,2).toInt() >= 10  ){
+                    gastoTotal += listaGastos[contador].cantidadGasto
+                    Toast.makeText(context, fecha.toString(), Toast.LENGTH_SHORT).show()
+                }
+                contador++
+            }
+
+
+            //Toast.makeText(context, fecha.toString(), Toast.LENGTH_SHORT).show()
+        }
+        return  gastoTotal
+    }
+
     fun obtenerMesYAnioActual(): String {
         val calendar = Calendar.getInstance()
         val mes = calendar.get(Calendar.MONTH) + 1 // Los meses en Calendar van de 0 a 11

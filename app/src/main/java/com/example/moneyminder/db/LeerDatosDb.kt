@@ -119,5 +119,15 @@ class LeerDatosDb {
         return listaTotalGasto
     }
 
+    fun getDiaIngresoSalario(db: SQLiteDatabase): Int{
+        val cursor = db.rawQuery("SELECT dia_ingreso_salario FROM datos_personales", null)
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(0)
+        } else {
+            return -1
+        }
+        cursor.close()
+    }
+
 
 }

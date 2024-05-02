@@ -71,7 +71,7 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
     }
 
     fun rellenarFormPorDefecto(){
-        binding.textGastoTotal.text = SacarDatosResumenDatos(this).sumarGastosMesActual().toString() + "€"
+        binding.textGastoTotal.text = SacarDatosResumenDatos(this).sumarGastosTuMes().toString() + "€"
         binding.textDineroRestante.text =SacarDatosResumenDatos(this).DineroRestanteMes().toString()
         binding.textGastoMasRc1.text = SacarDatosResumenDatos(this).catMasRecurrente()[0]
         binding.textGastoMasRc2.text = SacarDatosResumenDatos(this).catMasRecurrente()[1]

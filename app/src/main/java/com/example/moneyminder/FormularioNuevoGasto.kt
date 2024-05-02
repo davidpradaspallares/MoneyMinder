@@ -43,7 +43,7 @@ class FormularioNuevoGasto : AppCompatActivity(), OnClickListener {
         fecha = DatePickerDialog.OnDateSetListener{ datepicker, year, month, day ->
             calendario.set(Calendar.YEAR, year)
             calendario.set(Calendar.MONTH, month)
-            calendario.set(Calendar.DAY_OF_YEAR, day)
+            calendario.set(Calendar.DAY_OF_MONTH, day)
             fechaSeleccionada = calendario.time
             actualizarFecha(calendario)
         }
@@ -111,6 +111,9 @@ class FormularioNuevoGasto : AppCompatActivity(), OnClickListener {
                     "GASTO" -> {ingresarDatosDb.insertarDatosNuevoGasto(cantidad_gasto.toDouble(),categoria_principal,descripcion,metodoPago,fechaSeleccionada)}
                 }
 
+                binding.editTextDescripcion.setText("")
+                binding.inputCantidadGasto.setText("")
+                val toast = Toast.makeText(this, "OPERACIÓN REALIZADA CON EXITO", Toast.LENGTH_SHORT).show()
             }
         }
     }
