@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/fondoOscuroVentana"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ListarIngresosGastos">
@@ -56,6 +57,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="INGRESOS"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/fondoBotonesAmarillos"
             tools:layout_editor_absoluteX="10dp" />
 
         <Button
@@ -64,6 +67,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="GASTOS"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/fondoBotonesAmarillos"
             tools:layout_editor_absoluteX="10dp" />
     </LinearLayout>
     <!-- BARRA BAJA INICIO -->
