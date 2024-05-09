@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -42,37 +43,84 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
         binding.btnFiltroPorDefecto.setOnClickListener(this)
         binding.btnFiltroEsteAno.setOnClickListener(this)
         binding.btnTodosLosRegistros.setOnClickListener(this)
-
+        binding.btnListarCategorias.setOnClickListener(this)
+        //Toast.makeText(this, "aaaaaaaaaa", Toast.LENGTH_SHORT).show()
         rellenarFormPorDefecto()
         binding.btnFiltroPorDefecto.background = ColorDrawable(Color.GRAY)
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
-            binding.iBtnStatistics.id ->{PasarVentanas(this, "ResumenGastos")}
-            binding.iBtnAlert.id ->{PasarVentanas(this, "PanelControlAlarma")}
-            binding.iBtnUser.id ->{PasarVentanas(this, "VerDatosUsuario")}
-            binding.iBtnCrearGasto.id ->{PasarVentanas(this, "FormularioNuevoGasto")}
-            binding.btnListarGastos.id ->{startActivity(Intent(this, ListarIngresosGastos::class.java))}
-            binding.btnFiltroPorDefecto.id ->{
+        when(v?.id) {
+            binding.iBtnStatistics.id -> {
+                PasarVentanas(this, "ResumenGastos")
+            }
+
+            binding.iBtnAlert.id -> {
+                PasarVentanas(this, "PanelControlAlarma")
+            }
+
+            binding.iBtnUser.id -> {
+                PasarVentanas(this, "VerDatosUsuario")
+            }
+
+            binding.iBtnCrearGasto.id -> {
+                PasarVentanas(this, "FormularioNuevoGasto")
+            }
+
+            binding.btnListarGastos.id -> {
+                startActivity(Intent(this, ListarIngresosGastos::class.java))
+            }
+
+            binding.btnListarCategorias.id -> {
+                startActivity(Intent(this, ListarCategorias::class.java))
+            }
+
+            binding.btnFiltroPorDefecto.id -> {
                 binding.btnFiltroPorDefecto.background = ColorDrawable(Color.GRAY)
                 binding.btnFiltroEsteAno.background = ColorDrawable(Color.WHITE)
                 binding.btnTodosLosRegistros.background = ColorDrawable(Color.WHITE)
-                rellenarFormPorDefecto()}
-            binding.btnFiltroEsteAno.id ->{
+                rellenarFormPorDefecto()
+            }
+
+            binding.btnFiltroEsteAno.id -> {
                 binding.btnFiltroEsteAno.background = ColorDrawable(Color.GRAY)
                 binding.btnFiltroPorDefecto.background = ColorDrawable(Color.WHITE)
-                binding.btnTodosLosRegistros.background = ColorDrawable(Color.WHITE)}
-            binding.btnTodosLosRegistros.id ->{
+                binding.btnTodosLosRegistros.background = ColorDrawable(Color.WHITE)
+                binding.textGastoTotal.text =
+                    SacarDatosResumenDatos(this).sumarGastosAñoActual().toString()
+                binding.textGastoMasRc1.text =
+                    SacarDatosResumenDatos(this).catMasRecurrenteEsteAño()[0]
+                binding.textGastoMasRc2.text =
+                    SacarDatosResumenDatos(this).catMasRecurrenteEsteAño()[1]
+                binding.textGastoMasRc3.text =
+                    SacarDatosResumenDatos(this).catMasRecurrenteEsteAño()[2]
+                binding.textGastoCat1.text = SacarDatosResumenDatos(this).catMasGastoAñoActual()[0]
+                binding.textGastoCat2.text = SacarDatosResumenDatos(this).catMasGastoAñoActual()[1]
+                binding.textGastoCat3.text = SacarDatosResumenDatos(this).catMasGastoAñoActual()[2]
+                binding.textDineroRestante.text = "NO DISPONIBLE"
+
+            }
+
+            binding.btnTodosLosRegistros.id -> {
                 binding.btnTodosLosRegistros.background = ColorDrawable(Color.GRAY)
                 binding.btnFiltroEsteAno.background = ColorDrawable(Color.WHITE)
-                binding.btnFiltroPorDefecto.background = ColorDrawable(Color.WHITE)}
+                binding.btnFiltroPorDefecto.background = ColorDrawable(Color.WHITE)
+                binding.textGastoTotal.text =
+                    SacarDatosResumenDatos(this).sumarGastosTotal().toString()
+                binding.textGastoMasRc1.text = SacarDatosResumenDatos(this).catMasRecurrente()[0]
+                binding.textGastoMasRc2.text = SacarDatosResumenDatos(this).catMasRecurrente()[1]
+                binding.textGastoMasRc3.text = SacarDatosResumenDatos(this).catMasRecurrente()[2]
+                binding.textGastoCat1.text = SacarDatosResumenDatos(this).catMasGasto()[0]
+                binding.textGastoCat2.text = SacarDatosResumenDatos(this).catMasGasto()[1]
+                binding.textGastoCat3.text = SacarDatosResumenDatos(this).catMasGasto()[2]
+                binding.textDineroRestante.text = "NO DISPONIBLE"
+            }
         }
     }
 
     fun rellenarFormPorDefecto(){
-        binding.textGastoTotal.text = SacarDatosResumenDatos(this).sumarGastosTuMes().toString() + "€"
-        binding.textDineroRestante.text =SacarDatosResumenDatos(this).DineroRestanteMes().toString()
+        binding.textGastoTotal.text = String.format("%.2f",SacarDatosResumenDatos(this).sumarGastosTuMes()).toString() + "€"
+        binding.textDineroRestante.text =String.format("%.2f",SacarDatosResumenDatos(this).DineroRestanteMes()).toString()
         binding.textGastoMasRc1.text = SacarDatosResumenDatos(this).catMasRecurrente()[0]
         binding.textGastoMasRc2.text = SacarDatosResumenDatos(this).catMasRecurrente()[1]
         binding.textGastoMasRc3.text = SacarDatosResumenDatos(this).catMasRecurrente()[2]

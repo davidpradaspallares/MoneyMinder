@@ -55,8 +55,8 @@ class FormularioDatosPersonales : AppCompatActivity() {
 
                     //Ingresamos los datos del usuario en su tabla.
                     var ingresarDatosDb = IngresarDatosDb(this)
-                    ingresarDatosDb.insertarDatosUsuario(nombre,apellidos,email,numeroTelefono.toInt(),salarioMensual.toDouble(),ingresoSalario.toInt())
-                    //ingresarDatosDb.ingresarPrueba()
+                    //ingresarDatosDb.insertarDatosUsuario(nombre,apellidos,email,numeroTelefono.toInt(),salarioMensual.toDouble(),ingresoSalario.toInt())
+                    ingresarDatosDb.ingresarPrueba()
 
                     //Pasamos al main
                     var intent = Intent(this, MainActivity::class.java)

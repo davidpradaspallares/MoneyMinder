@@ -25,4 +25,10 @@
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
     </style>
+    <style name="radius">
+        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerSizeBottomLeft">20dp</item>
+        <item name="cornerSizeBottomRight">20dp</item>
+    </style>
 </resources>

@@ -69,16 +69,16 @@ class FormularioNuevoGasto : AppCompatActivity(), OnClickListener {
             binding.rBtnIngreso.id -> {
                 val miColorVerde = ContextCompat.getColor(this, R.color.green)
                 binding.tableLayout.setBackgroundColor(miColorVerde)
-                binding.btnGuardar.setBackgroundColor(miColorVerde)
-                binding.inputCantidadGasto.setBackgroundColor(miColorVerde)
+                //binding.btnGuardar.setBackgroundColor(miColorVerde)
+                //binding.inputCantidadGasto.setBackgroundColor(miColorVerde)
                 binding.grupoIngreso.visibility = View.VISIBLE
                 binding.grupoGasto.visibility = View.GONE
             }
             binding.radioButton.id -> {
                 val miColor = ContextCompat.getColor(this, R.color.red)
                 binding.tableLayout.setBackgroundColor(miColor)
-                binding.btnGuardar.setBackgroundColor(miColor)
-                binding.inputCantidadGasto.setBackgroundColor(miColor)
+                //binding.btnGuardar.setBackgroundColor(miColor)
+                //binding.inputCantidadGasto.setBackgroundColor(miColor)
                 binding.grupoIngreso.visibility = View.GONE
                 binding.grupoGasto.visibility = View.VISIBLE
             }

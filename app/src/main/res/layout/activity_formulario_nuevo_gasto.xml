@@ -30,16 +30,9 @@
                 android:background="@color/red"
                 android:gravity="center">
 
-                <TableRow android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        style="@style/titulo_ventana"
-                        android:text="NUEVO INGRESO/GASTO"
-                        android:textColor="@color/black" />
-                </TableRow>
-
-                <TableRow>
+                <TableRow
+                    android:gravity="center"
+                    android:layout_margin="20dp">
 
                     <RadioGroup
                         android:id="@+id/rGroupIngresoGasto"
@@ -47,7 +40,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
-                        android:background="@color/barra_baja"
+                        android:background="@color/fondo_boton"
                         android:orientation="horizontal"
                         android:padding="5dp">
 
@@ -79,14 +72,14 @@
                 android:id="@+id/inputCantidadGasto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@color/red"
+                android:background="@null"
                 android:ems="10"
-                android:hint="Cantidad"
+                android:textColor="@color/red"
+                android:hint="0€"
                 android:inputType="numberDecimal"
                 android:padding="5dp"
-                android:textAlignment="center"
-                android:textColorHint="@color/black"
+                android:textAlignment="textEnd"
+                android:textColorHint="@color/red"
                 android:textSize="35dp"
                 android:textStyle="bold" />
 
@@ -146,6 +139,7 @@
 
             </LinearLayout>
 
+
             <LinearLayout
                 android:id="@+id/grupoGasto"
                 android:layout_width="match_parent"
@@ -153,12 +147,13 @@
                 android:orientation="vertical">
                 <Spinner
                     android:id="@+id/catGasto"
-                    android:layout_width="335dp"
-                    android:layout_height="39dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:layout_marginTop="10dp"
-                    android:entries="@array/listaCategorias"
-                    android:textAlignment="center" />
+                    android:entries="@array/listaCategorias"/>
 
 
                 <RadioGroup
@@ -192,11 +187,12 @@
             </LinearLayout>
             <EditText
                 android:id="@+id/editTextDescripcion"
-                android:layout_width="335dp"
-                android:layout_height="130dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:ems="10"
+                android:background="@null"
                 android:gravity="start|top"
                 android:hint="Descripción (Puedes usar la descripción para poner los nombres de los productos que has comprado)"
                 android:inputType="textMultiLine" />
@@ -204,7 +200,7 @@
                 android:id="@+id/lLayoutFechaGasto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:textAlignment="textStart"
                 android:orientation="horizontal"
                 android:padding="5dp">
 

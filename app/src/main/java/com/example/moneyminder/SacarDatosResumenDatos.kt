@@ -1,8 +1,6 @@
 package com.example.moneyminder
 
 import android.content.Context
-import android.os.Bundle
-import android.widget.Toast
 import com.example.moneyminder.db.CrearDb
 import com.example.moneyminder.db.LeerDatosDb
 import com.example.moneyminder.model_de_datos.Gastos
@@ -41,49 +39,79 @@ class SacarDatosResumenDatos(val context: Context) {
 
     }
 
+    fun sumarGastosAñoActual(): Double{
+        var listaGastos: List<Gastos> = LeerDatosDb().leerGastos(db)
+        val añoActual = LocalDate.now().year
+        var gastoTotal = 0.00
+        var contador = 0
+        for(item in listaGastos){
+            if(listaGastos[contador].fechaGasto.toString().substring(6) == añoActual.toString()){
+                gastoTotal += listaGastos[contador].cantidadGasto
+            }
+            contador++
+        }
+        return gastoTotal
+    }
+
+    fun sumarGastosTotal(): Double{
+        var listaGastos: List<Gastos> = LeerDatosDb().leerGastos(db)
+        var gastoTotal = 0.00
+        var contador = 0
+        for(item in listaGastos){
+            gastoTotal += listaGastos[contador].cantidadGasto
+            contador++
+        }
+        return gastoTotal
+    }
+
     // Tu mes: 30 dias teniendo en cuenta el día en el que cobras.
     fun sumarGastosTuMes(): Double{
         var listaGastos: List<Gastos> = LeerDatosDb().leerGastos(db)
         var gastoTotal = 0.00
         var contador = 0
-        //Comprobamos si este mes hemos sobrepasado el dia de ingreso
-        if (LocalDate.now().dayOfMonth < LeerDatosDb().getDiaIngresoSalario(db)){ //Si es anterior al 10
-            for(item in listaGastos){//Sacamos los datos del mes en curso.
-                if(listaGastos[contador].fechaGasto.toString().substring(3) == obtenerMesYAnioActual().toString() &&
-                    listaGastos[contador].fechaGasto.toString().substring(0,2).toInt() <= 9  ){
-                    gastoTotal += listaGastos[contador].cantidadGasto
-                }
-                contador++
-            }
-            contador = 0
-            var fecha = "0" + (obtenerMesYAnioActual().substring(0,2).toInt()-1) + "-" + obtenerMesYAnioActual().substring(3)
-            for(item in listaGastos){//Sacamos los datos del mes anterior.
-                if(listaGastos[contador].fechaGasto.toString().substring(3) == fecha &&
-                    listaGastos[contador].fechaGasto.toString().substring(0,2).toInt() >= 10  ){
-                    gastoTotal += listaGastos[contador].cantidadGasto
-                }
-                contador++
-            }
-        }else if(LocalDate.now().dayOfMonth > LeerDatosDb().getDiaIngresoSalario(db)){
-            contador = 0
-            for(item in listaGastos){//Sacamos los datos del mes en curso.
-                if(listaGastos[contador].fechaGasto.toString().substring(3) == obtenerMesYAnioActual().toString() &&
-                    listaGastos[contador].fechaGasto.toString().substring(0,2).toInt() >= 10  ){
-                    gastoTotal += listaGastos[contador].cantidadGasto
-                }
-                contador++
-            }
-            var fecha = "0" + (obtenerMesYAnioActual().substring(0,2).toInt()+1) + "-" + obtenerMesYAnioActual().substring(3)
-            for(item in listaGastos){//Sacamos los datos del mes posterior.
-                if(listaGastos[contador].fechaGasto.toString().substring(3) == fecha &&
-                    listaGastos[contador].fechaGasto.toString().substring(0,2).toInt() <= 9  ){
-                    gastoTotal += listaGastos[contador].cantidadGasto
-                }
-                contador++
-            }
+        if(LeerDatosDb().getDiaIngresoSalario(db) == -1){//Comprobamos si hay dia de ingreso de salario
+            return sumarGastosMesActual()
 
+        }else{
+            //Comprobamos si este mes hemos sobrepasado el dia de ingreso
+            if (LocalDate.now().dayOfMonth < LeerDatosDb().getDiaIngresoSalario(db)){ //Si es anterior al 10
+                for(item in listaGastos){//Sacamos los datos del mes en curso.
+                    if(listaGastos[contador].fechaGasto.toString().substring(3) == obtenerMesYAnioActual().toString() &&
+                        listaGastos[contador].fechaGasto.toString().substring(0,2).toInt() <= 9  ){
+                        gastoTotal += listaGastos[contador].cantidadGasto
+                    }
+                    contador++
+                }
+                contador = 0
+                var fecha = "0" + (obtenerMesYAnioActual().substring(0,2).toInt()-1) + "-" + obtenerMesYAnioActual().substring(3)
+                for(item in listaGastos){//Sacamos los datos del mes anterior.
+                    if(listaGastos[contador].fechaGasto.toString().substring(3) == fecha &&
+                        listaGastos[contador].fechaGasto.toString().substring(0,2).toInt() >= 10  ){
+                        gastoTotal += listaGastos[contador].cantidadGasto
+                    }
+                    contador++
+                }
+            }else if(LocalDate.now().dayOfMonth > LeerDatosDb().getDiaIngresoSalario(db)){
+                contador = 0
+                for(item in listaGastos){//Sacamos los datos del mes en curso.
+                    if(listaGastos[contador].fechaGasto.toString().substring(3) == obtenerMesYAnioActual().toString() &&
+                        listaGastos[contador].fechaGasto.toString().substring(0,2).toInt() >= 10  ){
+                        gastoTotal += listaGastos[contador].cantidadGasto
+                    }
+                    contador++
+                }
+                var fecha = "0" + (obtenerMesYAnioActual().substring(0,2).toInt()+1) + "-" + obtenerMesYAnioActual().substring(3)
+                for(item in listaGastos){//Sacamos los datos del mes posterior.
+                    if(listaGastos[contador].fechaGasto.toString().substring(3) == fecha &&
+                        listaGastos[contador].fechaGasto.toString().substring(0,2).toInt() <= 9  ){
+                        gastoTotal += listaGastos[contador].cantidadGasto
+                    }
+                    contador++
+                }
+
+            }
+            return  gastoTotal
         }
-        return  gastoTotal
     }
 
     fun obtenerMesYAnioActual(): String {
@@ -109,16 +137,37 @@ class SacarDatosResumenDatos(val context: Context) {
     fun catMasRecurrente(): List<String> {
         try {
             return listOf(
-                LeerDatosDb().leerCategoriasGastos(db)[0] + " - " + LeerDatosDb().leerCantidadVecesCategorias(db)[0],
-                LeerDatosDb().leerCategoriasGastos(db)[1] + " - " + LeerDatosDb().leerCantidadVecesCategorias(db)[1],
-                LeerDatosDb().leerCategoriasGastos(db)[2] + " - " + LeerDatosDb().leerCantidadVecesCategorias(db)[2]
+                LeerDatosDb().leerVecesCategoriasGastos(db)[0] + " - " + LeerDatosDb().leerCantidadVecesCategorias(db)[0],
+                LeerDatosDb().leerVecesCategoriasGastos(db)[1] + " - " + LeerDatosDb().leerCantidadVecesCategorias(db)[1],
+                LeerDatosDb().leerVecesCategoriasGastos(db)[2] + " - " + LeerDatosDb().leerCantidadVecesCategorias(db)[2]
             )
         }catch (e: Exception){
             return listOf("-","-","-")
         }
-
     }
 
+    fun catMasRecurrenteEsteAño(): List<String>{
+        try {
+            return listOf(
+                LeerDatosDb().leerCantidadVecesCategoriasAñoActualNombre(db)[0] + " - " + LeerDatosDb().leerCantidadVecesCategoriasAñoActual(db)[0],
+                LeerDatosDb().leerCantidadVecesCategoriasAñoActualNombre(db)[1] + " - " + LeerDatosDb().leerCantidadVecesCategoriasAñoActual(db)[1],
+                LeerDatosDb().leerCantidadVecesCategoriasAñoActualNombre(db)[2] + " - " + LeerDatosDb().leerCantidadVecesCategoriasAñoActual(db)[2]
+            )
+        }catch (e: Exception){
+            return listOf("-","-","-")
+        }
+    }
+    fun catMasGastoAñoActual():List<String>{
+        try {
+            return listOf(
+                LeerDatosDb().leerCategoriaMayorGastoAñoActual(db)[0] + " - " + LeerDatosDb().leerSumaEconomicaCategoriasAñoActual(db)[0] + "€",
+                LeerDatosDb().leerCategoriaMayorGastoAñoActual(db)[1] + " - " + LeerDatosDb().leerSumaEconomicaCategoriasAñoActual(db)[1] + "€",
+                LeerDatosDb().leerCategoriaMayorGastoAñoActual(db)[2] + " - " + LeerDatosDb().leerSumaEconomicaCategoriasAñoActual(db)[2] + "€"
+            )
+        }catch (e: Exception){
+            return listOf("-","-","-")
+        }
+    }
     fun catMasGasto():List<String>{
         try {
             return listOf(

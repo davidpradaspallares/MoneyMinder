@@ -55,23 +55,28 @@
                     android:text="TOTAL" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/btnListarGastos"
-                android:layout_width="336dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:background="@color/white"
-                android:text="LISTAR GASTOS" />
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/btnListarGastos"
+                    android:layout_width="336dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/white"
+                    android:text="LISTAR GASTOS" />
+                <Button
+                    android:id="@+id/btnListarCategorias"
+                    android:layout_width="336dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/white"
+                    android:text="LISTAR CATEGORIAS" />
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/ListarCategorias"
-                android:layout_width="336dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:background="@color/white"
-                android:text="LISTAR CATEGORÍAS" />
             <!-- GASTOS TOTALES | DINERO RESTANTE -->
             <TableLayout
                 android:layout_width="match_parent"

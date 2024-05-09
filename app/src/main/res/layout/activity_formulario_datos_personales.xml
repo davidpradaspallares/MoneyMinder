@@ -1,120 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/fondoOscuroVentana"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".FormularioDatosPersonales">
 
     <TextView
-        android:id="@+id/textView"
-        style="@style/titulo_ventana"
-        android:text="DATOS PERSONALES"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/tvIntroducirDatos"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VAMOS A AHORRAR!"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
 
     <EditText
         android:id="@+id/inputName"
-        android:drawableStart="@drawable/ic_usuario_blanco"
-        android:drawablePadding="10dp"
-        android:layout_width="340dp"
-        android:layout_height="43dp"
-        android:background="@null"
-        android:text="aaa"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:inputType="text"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/et_bordes_fondo"
         android:hint="Nombre*"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
+        android:textColor="@color/white"
+        app:shapeAppearanceOverlay="@style/radius"
+        android:layout_margin="15dp"
+        android:drawableEnd="@drawable/iconos_32px_usuario"/>
     <EditText
         android:id="@+id/inputApellidos"
-        android:drawableStart="@drawable/ic_usuario_blanco"
-        android:drawablePadding="10dp"
-        android:layout_width="340dp"
-        android:text="aaa"
-        android:layout_height="43dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:background="@null"
-        android:inputType="text"
-        android:hint="Apellidos*"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputName" />
-
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/et_bordes_fondo"
+        android:hint="Appellidos*"
+        android:textColor="@color/white"
+        app:shapeAppearanceOverlay="@style/radius"
+        android:layout_margin="15dp"
+        android:drawableEnd="@drawable/iconos_32px_usuario"/>
     <EditText
         android:id="@+id/inputEmail"
-        android:drawableStart="@drawable/ic_email_blanco"
-        android:drawablePadding="10dp"
-        android:layout_width="340dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:inputType="text"
-        android:background="@null"
-        android:hint="Email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputApellidos" />
-
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/et_bordes_fondo"
+        android:hint="Correo electrónico"
+        android:textColor="@color/white"
+        app:shapeAppearanceOverlay="@style/radius"
+        android:layout_margin="15dp"
+        android:drawableEnd="@drawable/iconos_32px_email"/>
     <EditText
         android:id="@+id/inputTelefono"
-        android:drawableStart="@drawable/ic_telefono_blanco"
-        android:drawablePadding="10dp"
-        android:layout_width="340dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:background="@null"
-        android:inputType="phone"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/et_bordes_fondo"
         android:hint="Número de telefono"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
-
+        android:textColor="@color/white"
+        android:ems="10"
+        android:inputType="phone"
+        app:shapeAppearanceOverlay="@style/radius"
+        android:layout_margin="15dp"
+        android:drawableEnd="@drawable/iconos_32px_movil"/>
     <EditText
         android:id="@+id/inputSalarioMensual"
-        android:drawableStart="@drawable/ic_moneda_blanco"
-        android:drawablePadding="10dp"
-        android:layout_width="340dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:background="@null"
-        android:inputType="numberDecimal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/et_bordes_fondo"
         android:hint="Salario mensual"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputTelefono" />
-
+        android:textColor="@color/white"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:shapeAppearanceOverlay="@style/radius"
+        android:layout_margin="15dp"
+        android:drawableEnd="@drawable/iconos_32px_dinero"/>
     <EditText
         android:id="@+id/inputDiaIngreso"
-        android:drawableStart="@drawable/ic_calendario_blanco"
-        android:drawablePadding="10dp"
-        android:layout_width="340dp"
-        android:layout_height="43dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/et_bordes_fondo"
+        android:hint="Día ingreso del salario"
+        android:textColor="@color/white"
         android:ems="10"
-        android:layout_marginTop="10dp"
         android:inputType="number"
-        android:background="@null"
-        android:hint="Ingreso salario"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputSalarioMensual" />
-
+        app:shapeAppearanceOverlay="@style/radius"
+        android:layout_margin="15dp"
+        android:drawableEnd="@drawable/iconos_32px_calendario"/>
     <Button
         android:id="@+id/btnGuardar"
-        android:layout_width="336dp"
-        android:layout_height="95dp"
-        android:layout_margin="20dp"
-        android:background="@color/white"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/fondoBotonesAmarillos"
         android:text="GUARDAR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:padding="10dp"
+        android:textColor="@color/black" />
+</LinearLayout>

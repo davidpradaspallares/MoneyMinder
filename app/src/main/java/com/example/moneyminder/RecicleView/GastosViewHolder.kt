@@ -16,7 +16,7 @@ class GastosViewHolder (view: View): RecyclerView.ViewHolder(view) {
     fun rener(gastosModel: Gastos){
         idGasto.text = gastosModel.id.toString()
         fechaGasto.text = gastosModel.fechaGasto.toString()
-        cantidadGasto.text = gastosModel.cantidadGasto.toString() + "€"
+        cantidadGasto.text = String.format("%.2f",gastosModel.cantidadGasto).toString() + "€"
         categoriaGasto.text = gastosModel.categoria.toString()
         metodoPago.text = gastosModel.metodoPago.toString()
     }
