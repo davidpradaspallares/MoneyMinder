@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/fondoOscuroVentana"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FormularioNuevoGasto">
@@ -40,12 +41,11 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
-                        android:background="@color/fondo_boton"
                         android:orientation="horizontal"
                         android:padding="5dp">
 
                         <RadioButton
-                            android:id="@+id/rBtnIngreso"
+                            android:id="@+id/rbIngreso"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/green"
@@ -55,7 +55,7 @@
                             tools:layout_editor_absoluteY="587dp" />
 
                         <RadioButton
-                            android:id="@+id/radioButton"
+                            android:id="@+id/rbGasto"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/red"
@@ -82,6 +82,10 @@
                 android:textColorHint="@color/red"
                 android:textSize="35dp"
                 android:textStyle="bold" />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/fondoOscuroEditText"/>
 
             <LinearLayout
                 android:id="@+id/grupoIngreso"
@@ -98,6 +102,10 @@
                     android:layout_marginTop="10dp"
                     android:entries="@array/procedenciaIngreso"
                     android:textAlignment="center" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/fondoOscuroEditText"/>
 
                 <RadioGroup
                     android:id="@+id/rGroupMetodoIngreso"
@@ -154,8 +162,10 @@
                     android:paddingBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:entries="@array/listaCategorias"/>
-
-
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/fondoOscuroEditText"/>
                 <RadioGroup
                     android:id="@+id/rGroupMetodoPago"
                     android:layout_width="wrap_content"
@@ -185,6 +195,10 @@
                         tools:layout_editor_absoluteY="587dp" />
                 </RadioGroup>
             </LinearLayout>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/fondoOscuroEditText"/>
             <EditText
                 android:id="@+id/editTextDescripcion"
                 android:layout_width="match_parent"
@@ -192,31 +206,38 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:ems="10"
+                android:layout_marginBottom="10dp"
+                android:padding="5dp"
                 android:background="@null"
                 android:gravity="start|top"
                 android:hint="Descripción (Puedes usar la descripción para poner los nombres de los productos que has comprado)"
                 android:inputType="textMultiLine" />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/fondoOscuroEditText"/>
+
             <LinearLayout
-                android:id="@+id/lLayoutFechaGasto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="textStart"
-                android:orientation="horizontal"
-                android:padding="5dp">
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/ic_calendario_blanco"/>
+                    android:layout_gravity="center"
+                    android:src="@drawable/iconos_128px_calendario_blanco"/>
 
                 <TextView
                     android:id="@+id/textFecha"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fecha"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
-                    android:gravity="center"
-                    android:textSize="20dp" />
+                    android:layout_height="wrap_content"
+                    android:text="  Fecha"
+                    android:textSize="25dp" />
 
             </LinearLayout>
 

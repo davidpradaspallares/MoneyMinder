@@ -53,9 +53,9 @@ class FormularioNuevoGasto : AppCompatActivity(), OnClickListener {
         binding.iBtnUser.setOnClickListener(this)
         binding.iBtnCrearGasto.setOnClickListener(this)
         binding.btnGuardar.setOnClickListener(this)
-        binding.lLayoutFechaGasto.setOnClickListener(this)
-        binding.rBtnIngreso.setOnClickListener(this)
-        binding.radioButton.setOnClickListener(this)
+        binding.textFecha.setOnClickListener(this)
+        binding.rbIngreso.setOnClickListener(this)
+        binding.rbGasto.setOnClickListener(this)
 
     }
 
@@ -66,23 +66,25 @@ class FormularioNuevoGasto : AppCompatActivity(), OnClickListener {
             binding.iBtnUser.id ->{PasarVentanas(this, "VerDatosUsuario")}
             binding.iBtnCrearGasto.id ->{PasarVentanas(this, "FormularioNuevoGasto")}
             //Creamos la diferenciación visual entre ingreso y gasto
-            binding.rBtnIngreso.id -> {
+            binding.rbIngreso.id -> {
                 val miColorVerde = ContextCompat.getColor(this, R.color.green)
                 binding.tableLayout.setBackgroundColor(miColorVerde)
-                //binding.btnGuardar.setBackgroundColor(miColorVerde)
-                //binding.inputCantidadGasto.setBackgroundColor(miColorVerde)
+                binding.btnGuardar.setBackgroundColor(miColorVerde)
+                binding.inputCantidadGasto.setTextColor(miColorVerde)
+                binding.inputCantidadGasto.setHintTextColor(miColorVerde)
                 binding.grupoIngreso.visibility = View.VISIBLE
                 binding.grupoGasto.visibility = View.GONE
             }
-            binding.radioButton.id -> {
+            binding.rbGasto.id -> {
                 val miColor = ContextCompat.getColor(this, R.color.red)
                 binding.tableLayout.setBackgroundColor(miColor)
-                //binding.btnGuardar.setBackgroundColor(miColor)
-                //binding.inputCantidadGasto.setBackgroundColor(miColor)
+                binding.btnGuardar.setBackgroundColor(miColor)
+                binding.inputCantidadGasto.setTextColor(miColor)
+                binding.inputCantidadGasto.setHintTextColor(miColor)
                 binding.grupoIngreso.visibility = View.GONE
                 binding.grupoGasto.visibility = View.VISIBLE
             }
-            binding.lLayoutFechaGasto.id -> {
+            binding.textFecha.id -> {
 
                 DatePickerDialog(
                     this,

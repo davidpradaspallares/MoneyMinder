@@ -4,8 +4,8 @@
     <color name="barra_baja">#2C2C2C</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="green">#64E878</color>
-    <color name="red">#b5292a</color>
+    <color name="green">#5a6a41</color>
+    <color name="red">#800000</color>
     <color name="fondo_ingresos">#75B65E</color>
     <color name="fondo_gastos">#B65E5E</color>
     <color name="fondo_boton">#ff6364</color>
