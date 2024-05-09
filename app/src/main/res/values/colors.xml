@@ -5,6 +5,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#5a6a41</color>
+    <color name="gray">#767676</color>
     <color name="red">#800000</color>
     <color name="fondo_ingresos">#75B65E</color>
     <color name="fondo_gastos">#B65E5E</color>

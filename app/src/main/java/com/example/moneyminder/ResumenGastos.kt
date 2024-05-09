@@ -76,16 +76,16 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
             }
 
             binding.btnFiltroPorDefecto.id -> {
-                binding.btnFiltroPorDefecto.background = ColorDrawable(Color.GRAY)
-                binding.btnFiltroEsteAno.background = ColorDrawable(Color.WHITE)
-                binding.btnTodosLosRegistros.background = ColorDrawable(Color.WHITE)
+                binding.btnFiltroPorDefecto.setTextColor(getColor(R.color.gray))
+                binding.btnFiltroEsteAno.setTextColor(getColor(R.color.black))
+                binding.btnTodosLosRegistros.setTextColor(getColor(R.color.black))
                 rellenarFormPorDefecto()
             }
 
             binding.btnFiltroEsteAno.id -> {
-                binding.btnFiltroEsteAno.background = ColorDrawable(Color.GRAY)
-                binding.btnFiltroPorDefecto.background = ColorDrawable(Color.WHITE)
-                binding.btnTodosLosRegistros.background = ColorDrawable(Color.WHITE)
+                binding.btnFiltroPorDefecto.setTextColor(getColor(R.color.black))
+                binding.btnFiltroEsteAno.setTextColor(getColor(R.color.gray))
+                binding.btnTodosLosRegistros.setTextColor(getColor(R.color.black))
                 binding.textGastoTotal.text =
                     SacarDatosResumenDatos(this).sumarGastosAñoActual().toString()
                 binding.textGastoMasRc1.text =
@@ -102,9 +102,9 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
             }
 
             binding.btnTodosLosRegistros.id -> {
-                binding.btnTodosLosRegistros.background = ColorDrawable(Color.GRAY)
-                binding.btnFiltroEsteAno.background = ColorDrawable(Color.WHITE)
-                binding.btnFiltroPorDefecto.background = ColorDrawable(Color.WHITE)
+                binding.btnFiltroPorDefecto.setTextColor(getColor(R.color.black))
+                binding.btnFiltroEsteAno.setTextColor(getColor(R.color.black))
+                binding.btnTodosLosRegistros.setTextColor(getColor(R.color.gray))
                 binding.textGastoTotal.text =
                     SacarDatosResumenDatos(this).sumarGastosTotal().toString()
                 binding.textGastoMasRc1.text = SacarDatosResumenDatos(this).catMasRecurrente()[0]

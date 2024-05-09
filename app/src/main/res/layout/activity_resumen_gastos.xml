@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/fondoOscuroVentana"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ResumenGastos">
@@ -18,11 +19,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                style="@style/titulo_ventana"
-                android:layout_width="match_parent"
-                android:text="RESUMEN GASTOS" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -31,50 +27,60 @@
 
                 <Button
                     android:id="@+id/btnFiltroPorDefecto"
-                    android:layout_width="10dp"
+                    android:layout_width="15dp"
+                    android:text="|"
+                    android:textColor="@color/gray"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:background="@color/white" />
+                    android:layout_margin="2dp"
+                    android:backgroundTint="@color/fondoBotonesAmarillos" />
 
                 <Button
                     android:id="@+id/btnFiltroEsteAno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="2dp"
                     android:layout_weight="1"
-                    android:background="@color/white"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/fondoBotonesAmarillos"
                     android:text="ESTE AÑO" />
 
                 <Button
                     android:id="@+id/btnTodosLosRegistros"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="2dp"
                     android:layout_weight="1"
-                    android:background="@color/white"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/fondoBotonesAmarillos"
                     android:text="TOTAL" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
                 <Button
                     android:id="@+id/btnListarGastos"
-                    android:layout_width="336dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:backgroundTint="@color/fondoBotonesAmarillos"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
                     android:layout_marginTop="15dp"
-                    android:background="@color/white"
-                    android:text="LISTAR GASTOS" />
+                    android:text="INGRESOS/GASTOS" />
                 <Button
                     android:id="@+id/btnListarCategorias"
-                    android:layout_width="336dp"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textColor="@color/black"
                     android:layout_marginTop="15dp"
-                    android:background="@color/white"
-                    android:text="LISTAR CATEGORIAS" />
+                    android:backgroundTint="@color/fondoBotonesAmarillos"
+                    android:text="CATEGORIAS" />
             </LinearLayout>
 
             <!-- GASTOS TOTALES | DINERO RESTANTE -->
@@ -91,7 +97,13 @@
                         android:text="GASTOS TOTALES"
                         android:textSize="35dp"
                         android:textStyle="bold" />
+
                 </TableRow>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/fondoOscuroEditText"/>
                 <TableRow
                     android:gravity="center">
                     <TextView
@@ -103,6 +115,7 @@
                         android:textColor="@color/red"
                         android:textSize="40dp" />
                 </TableRow>
+
                 <TableRow
                     android:gravity="center">
                     <TextView
@@ -114,6 +127,11 @@
                         android:textSize="25dp"
                         android:textStyle="bold" />
                 </TableRow>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/fondoOscuroEditText"/>
                 <TableRow
                     android:gravity="center">
                     <TextView
@@ -139,6 +157,11 @@
                     android:text="CAT MAYOR GASTO"
                     android:textSize="30dp"
                     android:textStyle="bold" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/fondoOscuroEditText"/>
                 <TableRow
                     android:gravity="center">
                     <TextView
@@ -203,6 +226,11 @@
                     android:text="CAT MAS RECURRENTE"
                     android:textSize="30dp"
                     android:textStyle="bold" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/fondoOscuroEditText"/>
                 <TableRow
                     android:gravity="center">
                     <TextView
