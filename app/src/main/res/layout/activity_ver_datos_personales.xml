@@ -168,6 +168,29 @@
             android:textSize="15dp"
             tools:layout_editor_absoluteX="72dp"
             tools:layout_editor_absoluteY="108dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="COPIAS DE SEGURIDAD"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/fondoOscuroEditText"/>
+        <TextView
+            android:id="@+id/textCopiaSeguridad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="-"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            tools:layout_editor_absoluteX="72dp"
+            tools:layout_editor_absoluteY="108dp" />
     </LinearLayout>
 
 

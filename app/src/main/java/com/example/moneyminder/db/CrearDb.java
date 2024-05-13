@@ -22,7 +22,8 @@ public class CrearDb extends SQLiteOpenHelper {
                 "correo_electronico TEXT," +
                 "telefono INT," +
                 "salario_mensual DOUBLE," +
-                "dia_ingreso_salario INT)");
+                "dia_ingreso_salario INT," +
+                "copia_seguridad BOOLEAN)");
         sqLiteDatabase.execSQL("CREATE TABLE gastos" + "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT ," +
                 "cantidad_gasto DOUBLE NOT NULL ," +

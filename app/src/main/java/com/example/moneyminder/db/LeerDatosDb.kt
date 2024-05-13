@@ -296,6 +296,15 @@ class LeerDatosDb {
         }
         cursor.close()
     }
+    fun getCopiaSeguridad(db: SQLiteDatabase): Int{
+        val cursor = db.rawQuery("SELECT copia_seguridad FROM datos_personales", null)
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(0)
+        } else {
+            return 3
+        }
+        cursor.close()
+    }
 
 
 }

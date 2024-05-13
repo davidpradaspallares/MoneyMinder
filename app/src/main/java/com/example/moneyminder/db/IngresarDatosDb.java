@@ -20,11 +20,9 @@ public class IngresarDatosDb extends CrearDb {
         this.context = context;
     }
 
-    public long insertarDatosUsuario(String nombre, String apellidos, String correo_electronico, int telefono, double salario_mensual, int dia_ingreso_salario){
+    public long insertarDatosUsuario(String nombre, String apellidos, String correo_electronico, int telefono, double salario_mensual, int dia_ingreso_salario, boolean copiaSeguridad){
         CrearDb crearDb = new CrearDb(context);
         SQLiteDatabase db = crearDb.getWritableDatabase();
-
-
 
         //Insertamos el registro
         ContentValues valores = new ContentValues();
@@ -34,6 +32,7 @@ public class IngresarDatosDb extends CrearDb {
         valores.put("telefono", telefono);
         valores.put("salario_mensual", salario_mensual);
         valores.put("dia_ingreso_salario", dia_ingreso_salario);
+        valores.put("copia_seguridad", copiaSeguridad);
 
         long id = db.insert("datos_personales", null, valores);
         return id;

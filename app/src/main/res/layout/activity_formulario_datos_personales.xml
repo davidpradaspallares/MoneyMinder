@@ -86,6 +86,24 @@
         app:shapeAppearanceOverlay="@style/radius"
         android:layout_margin="15dp"
         android:drawableEnd="@drawable/iconos_32px_calendario"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Switch
+            android:id="@+id/switchCopiaSeguridad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COPIAS DE SEGURIDAD"/>
+    </LinearLayout>
+
+
+
     <Button
         android:id="@+id/btnGuardar"
         android:layout_width="330dp"

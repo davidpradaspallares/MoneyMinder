@@ -37,6 +37,7 @@ class FormularioDatosPersonales : AppCompatActivity() {
             var numeroTelefono = binding.inputTelefono.text.toString()
             var salarioMensual = binding.inputSalarioMensual.text.toString()
             var ingresoSalario = binding.inputDiaIngreso.text.toString()
+            var copiaSeguridad = binding.switchCopiaSeguridad.isChecked
             //Llamamos la funcion de Java para crear la base de dato y suestructura.
             val creardB = CrearDb(this)
             val db = creardB.writableDatabase
@@ -55,7 +56,7 @@ class FormularioDatosPersonales : AppCompatActivity() {
 
                     //Ingresamos los datos del usuario en su tabla.
                     var ingresarDatosDb = IngresarDatosDb(this)
-                    ingresarDatosDb.insertarDatosUsuario(nombre,apellidos,email,numeroTelefono.toInt(),salarioMensual.toDouble(),ingresoSalario.toInt())
+                    ingresarDatosDb.insertarDatosUsuario(nombre,apellidos,email,numeroTelefono.toInt(),salarioMensual.toDouble(),ingresoSalario.toInt(), copiaSeguridad)
                     //ingresarDatosDb.ingresarPrueba()
 
                     //Pasamos al main

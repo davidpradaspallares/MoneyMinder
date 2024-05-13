@@ -107,7 +107,7 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
                 binding.btnTodosLosRegistros.setTextColor(getColor(R.color.gray))
                 binding.btnFiltroMesActual.setTextColor(getColor(R.color.black))
                 binding.textGastoTotal.text =
-                    SacarDatosResumenDatos(this).sumarGastosTotal().toString()
+                    SacarDatosResumenDatos(this).sumarGastosTotal().toString() + "€"
                 binding.textGastoMasRc1.text = SacarDatosResumenDatos(this).catMasRecurrente()[0]
                 binding.textGastoMasRc2.text = SacarDatosResumenDatos(this).catMasRecurrente()[1]
                 binding.textGastoMasRc3.text = SacarDatosResumenDatos(this).catMasRecurrente()[2]
@@ -128,7 +128,7 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
 
     fun rellenarFormEsteAño(){
         binding.textGastoTotal.text =
-            SacarDatosResumenDatos(this).sumarGastosAñoActual().toString()
+            SacarDatosResumenDatos(this).sumarGastosAñoActual().toString() + "€"
         binding.textGastoMasRc1.text =
             SacarDatosResumenDatos(this).catMasRecurrenteEsteAño()[0]
         binding.textGastoMasRc2.text =

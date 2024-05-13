@@ -3,12 +3,14 @@ package com.example.moneyminder
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.moneyminder.databinding.ActivityVerDatosPersonalesBinding
 import com.example.moneyminder.db.CrearDb
+import com.example.moneyminder.db.LeerDatosDb
 
 class VerDatosPersonales : AppCompatActivity(), OnClickListener {
     private lateinit var binding: ActivityVerDatosPersonalesBinding
@@ -41,6 +43,7 @@ class VerDatosPersonales : AppCompatActivity(), OnClickListener {
         var telefono = 0
         var diaIngresoSalario = 0
         var salarioMensual = 0.0
+        var copiaSeguridad = 3
 
         val cursor = db.rawQuery("SELECT * FROM datos_personales", null)
 
@@ -52,9 +55,18 @@ class VerDatosPersonales : AppCompatActivity(), OnClickListener {
                 telefono = cursor.getInt(3)
                 salarioMensual = cursor.getDouble(4)
                 diaIngresoSalario = cursor.getInt(5)
+                copiaSeguridad = cursor.getInt(6)
             } while (cursor.moveToNext())
         }
         cursor.close()
+
+        if(copiaSeguridad == 0){
+            binding.textCopiaSeguridad.text = "No (Datos sin respaldo)"
+        }else if (copiaSeguridad == 1){
+            binding.textCopiaSeguridad.text = "Si (Datos con respaldo)"
+        }else{
+            Toast.makeText(applicationContext, "ERROR EN COPIA DE SEGURIDAD", Toast.LENGTH_SHORT).show()
+        }
 
         binding.textNombre.text = nombre
         binding.textApellidos.text = apellidos

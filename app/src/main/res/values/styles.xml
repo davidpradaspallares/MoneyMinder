@@ -31,4 +31,8 @@
         <item name="cornerSizeBottomLeft">20dp</item>
         <item name="cornerSizeBottomRight">20dp</item>
     </style>
+    <style name="switchPersonalizado" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:thumbTint">@color/fondoBotonesAmarillos</item>
+        <item name="android:trackTint">@color/red</item>
+    </style>
 </resources>
