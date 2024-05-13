@@ -50,7 +50,7 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
 
         if(SacarDatosResumenDatos(this).comprobarDiaIngreso() <= 0){
             binding.btnFiltroPorDefecto.visibility = View.GONE
-            //rellenarFormEsteAño()
+            rellenarFormMesActual()
         }else{
             SacarDatosResumenDatos(this).comprobarDiaIngreso()
             binding.btnFiltroPorDefecto.background = ColorDrawable(Color.GRAY)
