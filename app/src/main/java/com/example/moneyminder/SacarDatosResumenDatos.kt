@@ -1,6 +1,7 @@
 package com.example.moneyminder
 
 import android.content.Context
+import android.widget.Toast
 import com.example.moneyminder.db.CrearDb
 import com.example.moneyminder.db.LeerDatosDb
 import com.example.moneyminder.model_de_datos.Gastos
@@ -157,6 +158,28 @@ class SacarDatosResumenDatos(val context: Context) {
             return listOf("-","-","-")
         }
     }
+    fun catMasRecurrenteEsteMes(): List<String>{
+        try {
+            return listOf(
+                LeerDatosDb().leerCantidadVecesCategoriasMesActualNombre(db)[0] + " - " + LeerDatosDb().leerCantidadVecesCategoriasMesActual(db)[0],
+                LeerDatosDb().leerCantidadVecesCategoriasMesActualNombre(db)[1] + " - " + LeerDatosDb().leerCantidadVecesCategoriasMesActual(db)[1],
+                LeerDatosDb().leerCantidadVecesCategoriasMesActualNombre(db)[2] + " - " + LeerDatosDb().leerCantidadVecesCategoriasMesActual(db)[2]
+            )
+        }catch (e: Exception){
+            return listOf("-","-","-")
+        }
+    }
+    fun catMasGastoMesActual():List<String>{
+        try {
+            return listOf(
+                LeerDatosDb().leerCategoriaMayorGastoMesActual(db)[0] + " - " + LeerDatosDb().leerSumaEconomicaCategoriaMesActual(db)[0] + "€",
+                LeerDatosDb().leerCategoriaMayorGastoMesActual(db)[1] + " - " + LeerDatosDb().leerSumaEconomicaCategoriaMesActual(db)[1] + "€",
+                LeerDatosDb().leerCategoriaMayorGastoMesActual(db)[2] + " - " + LeerDatosDb().leerSumaEconomicaCategoriaMesActual(db)[2] + "€"
+            )
+        }catch (e: Exception){
+            return listOf("-","-","-")
+        }
+    }
     fun catMasGastoAñoActual():List<String>{
         try {
             return listOf(
@@ -178,6 +201,10 @@ class SacarDatosResumenDatos(val context: Context) {
         }catch (e: Exception){
             return listOf("-","-","-")
         }
+    }
+
+    fun comprobarDiaIngreso(): Int{
+        return LeerDatosDb().getDiaIngresoSalario(db)
     }
 
 }

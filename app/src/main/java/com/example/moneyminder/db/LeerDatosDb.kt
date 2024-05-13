@@ -114,6 +114,53 @@ class LeerDatosDb {
         cursor.close()
         return conteo
     }
+    fun leerCantidadVecesCategoriasMesActual(db: SQLiteDatabase): MutableList<Int>{
+        val cursor = db.rawQuery("SELECT \n" +
+                "    categoria_principal, \n" +
+                "    COUNT(*) AS conteo_repeticiones,\n" +
+                "    SUM(cantidad_gasto) AS total_gasto\n" +
+                "FROM \n" +
+                "    gastos\n" +
+                "WHERE \n" +
+                "    SUBSTR(fecha_gasto, 4, 2) = STRFTIME('%m', 'now') -- Filtrar por el mes actual\n" +
+                "    AND SUBSTR(fecha_gasto, 7) = STRFTIME('%Y', 'now') -- Filtrar por el año actual\n" +
+                "GROUP BY \n" +
+                "    categoria_principal\n" +
+                "ORDER BY \n" +
+                "    conteo_repeticiones DESC;\n", null)
+        val conteo = mutableListOf<Int>()
+        while (cursor.moveToNext()) {
+            conteo.add(cursor.getInt(1))
+        }
+        cursor.close()
+        return conteo
+    }
+    fun leerCantidadVecesCategoriasMesActualNombre(db: SQLiteDatabase): MutableList<String> {
+        val cursor = db.rawQuery("SELECT \n" +
+                "    categoria_principal, \n" +
+                "    COUNT(*) AS conteo_repeticiones,\n" +
+                "    SUM(cantidad_gasto) AS total_gasto\n" +
+                "FROM \n" +
+                "    gastos\n" +
+                "WHERE \n" +
+                "    SUBSTR(fecha_gasto, 4, 2) = STRFTIME('%m', 'now') -- Filtrar por el mes actual\n" +
+                "    AND SUBSTR(fecha_gasto, 7) = STRFTIME('%Y', 'now') -- Filtrar por el año actual\n" +
+                "GROUP BY \n" +
+                "    categoria_principal\n" +
+                "ORDER BY \n" +
+                "    conteo_repeticiones DESC;\n", null)
+        val categorias = mutableListOf<String>()
+
+        while (cursor.moveToNext()) {
+            val categoria = cursor.getString(0)
+            categorias.add(categoria)
+
+        }
+        cursor.close()
+
+        return categorias
+    }
+
     fun leerCantidadVecesCategorias(db: SQLiteDatabase): MutableList<Int>{
         val cursor = db.rawQuery("" +
                 "SELECT categoria_principal, COUNT(*) AS conteo_repeticiones\n" +
@@ -161,6 +208,47 @@ class LeerDatosDb {
                 "WHERE SUBSTR(fecha_gasto, 7) = STRFTIME('%Y', 'now') -- Filtrar por el año actual\n" +
                 "GROUP BY categoria_principal\n" +
                 "ORDER BY gasto_total DESC;", null)
+        val listaTotalGasto = mutableListOf<Int>()
+        while (cursor.moveToNext()) {
+            listaTotalGasto.add(cursor.getInt(1))
+        }
+        cursor.close()
+        return listaTotalGasto
+    }
+
+    fun leerCategoriaMayorGastoMesActual(db: SQLiteDatabase): MutableList<String>{
+        val cursor = db.rawQuery("SELECT \n" +
+                "    categoria_principal, \n" +
+                "    SUM(cantidad_gasto) AS gasto_total\n" +
+                "FROM \n" +
+                "    gastos\n" +
+                "WHERE \n" +
+                "    SUBSTR(fecha_gasto, 4, 2) = STRFTIME('%m', 'now') -- Filtrar por el mes actual\n" +
+                "    AND SUBSTR(fecha_gasto, 7) = STRFTIME('%Y', 'now') -- Filtrar por el año actual\n" +
+                "GROUP BY \n" +
+                "    categoria_principal\n" +
+                "ORDER BY \n" +
+                "    gasto_total DESC;\n", null)
+        val listaCategorias = mutableListOf<String>()
+        while (cursor.moveToNext()) {
+            listaCategorias.add(cursor.getString(0))
+        }
+        cursor.close()
+        return  listaCategorias
+    }
+    fun leerSumaEconomicaCategoriaMesActual(db: SQLiteDatabase): MutableList<Int>{
+        val cursor = db.rawQuery("SELECT \n" +
+                "    categoria_principal, \n" +
+                "    SUM(cantidad_gasto) AS gasto_total\n" +
+                "FROM \n" +
+                "    gastos\n" +
+                "WHERE \n" +
+                "    SUBSTR(fecha_gasto, 4, 2) = STRFTIME('%m', 'now') -- Filtrar por el mes actual\n" +
+                "    AND SUBSTR(fecha_gasto, 7) = STRFTIME('%Y', 'now') -- Filtrar por el año actual\n" +
+                "GROUP BY \n" +
+                "    categoria_principal\n" +
+                "ORDER BY \n" +
+                "    gasto_total DESC;", null)
         val listaTotalGasto = mutableListOf<Int>()
         while (cursor.moveToNext()) {
             listaTotalGasto.add(cursor.getInt(1))

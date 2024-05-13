@@ -1,5 +1,6 @@
 package com.example.moneyminder
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -44,9 +45,17 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
         binding.btnFiltroEsteAno.setOnClickListener(this)
         binding.btnTodosLosRegistros.setOnClickListener(this)
         binding.btnListarCategorias.setOnClickListener(this)
+        binding.btnFiltroMesActual.setOnClickListener(this)
         //Toast.makeText(this, "aaaaaaaaaa", Toast.LENGTH_SHORT).show()
-        rellenarFormPorDefecto()
-        binding.btnFiltroPorDefecto.background = ColorDrawable(Color.GRAY)
+
+        if(SacarDatosResumenDatos(this).comprobarDiaIngreso() <= 0){
+            binding.btnFiltroPorDefecto.visibility = View.GONE
+            //rellenarFormEsteAño()
+        }else{
+            SacarDatosResumenDatos(this).comprobarDiaIngreso()
+            binding.btnFiltroPorDefecto.background = ColorDrawable(Color.GRAY)
+            rellenarFormPorDefecto()
+        }
     }
 
     override fun onClick(v: View?) {
@@ -79,6 +88,7 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
                 binding.btnFiltroPorDefecto.setTextColor(getColor(R.color.gray))
                 binding.btnFiltroEsteAno.setTextColor(getColor(R.color.black))
                 binding.btnTodosLosRegistros.setTextColor(getColor(R.color.black))
+                binding.btnFiltroMesActual.setTextColor(getColor(R.color.black))
                 rellenarFormPorDefecto()
             }
 
@@ -86,18 +96,8 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
                 binding.btnFiltroPorDefecto.setTextColor(getColor(R.color.black))
                 binding.btnFiltroEsteAno.setTextColor(getColor(R.color.gray))
                 binding.btnTodosLosRegistros.setTextColor(getColor(R.color.black))
-                binding.textGastoTotal.text =
-                    SacarDatosResumenDatos(this).sumarGastosAñoActual().toString()
-                binding.textGastoMasRc1.text =
-                    SacarDatosResumenDatos(this).catMasRecurrenteEsteAño()[0]
-                binding.textGastoMasRc2.text =
-                    SacarDatosResumenDatos(this).catMasRecurrenteEsteAño()[1]
-                binding.textGastoMasRc3.text =
-                    SacarDatosResumenDatos(this).catMasRecurrenteEsteAño()[2]
-                binding.textGastoCat1.text = SacarDatosResumenDatos(this).catMasGastoAñoActual()[0]
-                binding.textGastoCat2.text = SacarDatosResumenDatos(this).catMasGastoAñoActual()[1]
-                binding.textGastoCat3.text = SacarDatosResumenDatos(this).catMasGastoAñoActual()[2]
-                binding.textDineroRestante.text = "NO DISPONIBLE"
+                binding.btnFiltroMesActual.setTextColor(getColor(R.color.black))
+                rellenarFormEsteAño()
 
             }
 
@@ -105,6 +105,7 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
                 binding.btnFiltroPorDefecto.setTextColor(getColor(R.color.black))
                 binding.btnFiltroEsteAno.setTextColor(getColor(R.color.black))
                 binding.btnTodosLosRegistros.setTextColor(getColor(R.color.gray))
+                binding.btnFiltroMesActual.setTextColor(getColor(R.color.black))
                 binding.textGastoTotal.text =
                     SacarDatosResumenDatos(this).sumarGastosTotal().toString()
                 binding.textGastoMasRc1.text = SacarDatosResumenDatos(this).catMasRecurrente()[0]
@@ -115,7 +116,29 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
                 binding.textGastoCat3.text = SacarDatosResumenDatos(this).catMasGasto()[2]
                 binding.textDineroRestante.text = "NO DISPONIBLE"
             }
+            binding.btnFiltroMesActual.id -> {
+                binding.btnFiltroPorDefecto.setTextColor(getColor(R.color.black))
+                binding.btnFiltroEsteAno.setTextColor(getColor(R.color.black))
+                binding.btnTodosLosRegistros.setTextColor(getColor(R.color.black))
+                binding.btnFiltroMesActual.setTextColor(getColor(R.color.gray))
+                rellenarFormMesActual()
+            }
         }
+    }
+
+    fun rellenarFormEsteAño(){
+        binding.textGastoTotal.text =
+            SacarDatosResumenDatos(this).sumarGastosAñoActual().toString()
+        binding.textGastoMasRc1.text =
+            SacarDatosResumenDatos(this).catMasRecurrenteEsteAño()[0]
+        binding.textGastoMasRc2.text =
+            SacarDatosResumenDatos(this).catMasRecurrenteEsteAño()[1]
+        binding.textGastoMasRc3.text =
+            SacarDatosResumenDatos(this).catMasRecurrenteEsteAño()[2]
+        binding.textGastoCat1.text = SacarDatosResumenDatos(this).catMasGastoAñoActual()[0]
+        binding.textGastoCat2.text = SacarDatosResumenDatos(this).catMasGastoAñoActual()[1]
+        binding.textGastoCat3.text = SacarDatosResumenDatos(this).catMasGastoAñoActual()[2]
+        binding.textDineroRestante.text = "NO DISPONIBLE"
     }
 
     fun rellenarFormPorDefecto(){
@@ -127,5 +150,17 @@ class ResumenGastos : AppCompatActivity(), OnClickListener {
         binding.textGastoCat1.text = SacarDatosResumenDatos(this).catMasGasto()[0]
         binding.textGastoCat2.text = SacarDatosResumenDatos(this).catMasGasto()[1]
         binding.textGastoCat3.text = SacarDatosResumenDatos(this).catMasGasto()[2]
+    }
+
+    fun rellenarFormMesActual(){
+        binding.textGastoTotal.text = String.format("%.2f",SacarDatosResumenDatos(this).sumarGastosMesActual()).toString() + "€"
+        binding.textDineroRestante.text = "NO DISPONIBLE"
+        binding.textGastoMasRc1.text = SacarDatosResumenDatos(this).catMasRecurrenteEsteMes()[0]
+        binding.textGastoMasRc2.text = SacarDatosResumenDatos(this).catMasRecurrenteEsteMes()[1]
+        binding.textGastoMasRc3.text = SacarDatosResumenDatos(this).catMasRecurrenteEsteMes()[2]
+        binding.textGastoCat1.text = SacarDatosResumenDatos(this).catMasGastoMesActual()[0]
+        binding.textGastoCat2.text = SacarDatosResumenDatos(this).catMasGastoMesActual()[1]
+        binding.textGastoCat3.text = SacarDatosResumenDatos(this).catMasGastoMesActual()[2]
+
     }
 }

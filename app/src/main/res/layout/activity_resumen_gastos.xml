@@ -45,6 +45,16 @@
                     android:text="ESTE AÑO" />
 
                 <Button
+                    android:id="@+id/btnFiltroMesActual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/fondoBotonesAmarillos"
+                    android:text="MES" />
+
+                <Button
                     android:id="@+id/btnTodosLosRegistros"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
