@@ -10,6 +10,10 @@ material = "1.11.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
 coreI18n = "1.0.0-alpha01"
+firebaseCommon = "21.0.0"
+firebaseDatabase = "21.0.0"
+firebaseDatabaseKtx = "21.0.0"
+firebaseFirestoreKtx = "25.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -21,6 +25,10 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-core-i18n = { group = "androidx.core", name = "core-i18n", version.ref = "coreI18n" }
+firebase-common = { group = "com.google.firebase", name = "firebase-common", version.ref = "firebaseCommon" }
+firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
+firebase-database-ktx = { group = "com.google.firebase", name = "firebase-database-ktx", version.ref = "firebaseDatabaseKtx" }
+firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

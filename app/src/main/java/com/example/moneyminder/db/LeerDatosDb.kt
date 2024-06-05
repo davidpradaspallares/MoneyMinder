@@ -306,5 +306,15 @@ class LeerDatosDb {
         cursor.close()
     }
 
+    fun getCorreoElectronico(db: SQLiteDatabase): String?{
+        val cursor = db.rawQuery("SELECT correo_electronico FROM datos_personales", null)
+        if (cursor.moveToFirst()) {
+            return cursor.getString(0)
+        } else {
+            return null
+        }
+        cursor.close()
+    }
+
 
 }

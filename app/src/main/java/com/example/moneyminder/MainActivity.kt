@@ -1,7 +1,10 @@
 package com.example.moneyminder
 
+import android.content.ContentValues.TAG
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +12,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.moneyminder.db.ComprobarDb
 import com.example.moneyminder.db.CrearDb
+import com.example.moneyminder.db.Firebase.ConexionFirebase
+import com.example.moneyminder.db.LeerDatosDb
+import com.example.moneyminder.model_de_datos.Gastos
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +31,13 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+
+        ConexionFirebase(this).insertarGasto(Gastos(0, 182.2, "Cat", "metodo", "descripcion", "fecha"));
+
+
+
 
         //CrearDb(this)
 
