@@ -6,6 +6,7 @@ import android.util.Log
 import com.example.moneyminder.db.CrearDb
 import com.example.moneyminder.db.LeerDatosDb
 import com.example.moneyminder.model_de_datos.Gastos
+import com.example.moneyminder.model_de_datos.Usuario
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
@@ -59,5 +60,27 @@ final class ConexionFirebase (context: Context) {
                 }
             }
     }
+
+    fun ingresarUsuario(usuario: Usuario){
+        // Obtenemos una referencia al documento en la colección "gastos" usando el correo electrónico del usuario
+        val docRef = db.collection("usuarios").document(LeerDatosDb().getCorreoElectronico(dbInterna).toString()+"_usuario");
+
+        val initialData = hashMapOf(
+            UUID.randomUUID().toString() to arrayListOf(usuario)
+        )
+
+        // Escribir los datos iniciales en el documento
+        docRef.set(initialData)
+            .addOnSuccessListener {
+                // En caso de éxito, imprimir un mensaje de registro indicando que el documento se escribió correctamente
+                Log.d(TAG, "Documento escrito correctamente")
+            }
+            .addOnFailureListener { e ->
+                // En caso de error al escribir el documento, imprimir un mensaje de advertencia con el error
+                Log.w(TAG, "Error al escribir el documento", e)
+            }
+
+    }
+
 
 }

@@ -35,4 +35,8 @@
         <item name="android:thumbTint">@color/fondoBotonesAmarillos</item>
         <item name="android:trackTint">@color/red</item>
     </style>
+    <style name="textInputLayoutFormUsuario" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:transitionName">""</item>
+    </style>
+
 </resources>

@@ -87,6 +87,26 @@
         android:layout_margin="15dp"
         android:drawableEnd="@drawable/iconos_32px_calendario"/>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/textInputLayoutFormUsuario"
+        app:hintEnabled="false"
+        app:endIconMode="password_toggle">
+        <EditText
+            android:id="@+id/inputContrasena"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/et_bordes_fondo"
+            android:hint="Contraseña"
+            android:textColor="@color/white"
+            android:ems="10"
+            android:inputType="textPassword"
+            app:shapeAppearanceOverlay="@style/radius"
+            android:layout_margin="15dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

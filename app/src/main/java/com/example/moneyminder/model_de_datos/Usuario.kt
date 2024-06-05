@@ -6,5 +6,7 @@ data class Usuario (
     val correoElectronico: String,
     val telefono: Int,
     val salarioMensual: Double,
-    val diaIngresoSalario: Int
+    val diaIngresoSalario: Int,
+    val copiaSeguridad: Boolean,
+    val contraseña: String? = ""
 )

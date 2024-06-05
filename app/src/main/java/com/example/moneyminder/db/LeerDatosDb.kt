@@ -56,8 +56,9 @@ class LeerDatosDb {
             val telefono = cursor.getInt(3)
             val salarioMensual = cursor.getDouble(4)
             val diaIngresoSalario = cursor.getInt(5)
+            val copiaSeguridad = cursor.getString(6).toBoolean()
 
-            listaDatosUsuario.add(Usuario(nombre, apellidos,correoElectronico,telefono,salarioMensual,diaIngresoSalario))
+            listaDatosUsuario.add(Usuario(nombre, apellidos,correoElectronico,telefono,salarioMensual,diaIngresoSalario, copiaSeguridad))
         }
         cursor.close()
         return listaDatosUsuario

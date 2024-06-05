@@ -33,12 +33,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
-        ConexionFirebase(this).insertarGasto(Gastos(0, 182.2, "Cat", "metodo", "descripcion", "fecha"));
-
-
-
-
         //CrearDb(this)
 
         //Comprobamos si la base de datos existe y tiene los datos requeridos.
