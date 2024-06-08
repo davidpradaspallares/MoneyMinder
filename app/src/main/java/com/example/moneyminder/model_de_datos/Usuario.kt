@@ -1,6 +1,6 @@
 package com.example.moneyminder.model_de_datos
 
-data class Usuario (
+data class Usuario(
     val nombre: String,
     val apellidos: String,
     val correoElectronico: String,

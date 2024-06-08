@@ -92,6 +92,8 @@
         android:layout_height="wrap_content"
         style="@style/textInputLayoutFormUsuario"
         app:hintEnabled="false"
+        android:visibility="gone"
+        android:id="@+id/inputContrasenaL"
         app:endIconMode="password_toggle">
         <EditText
             android:id="@+id/inputContrasena"

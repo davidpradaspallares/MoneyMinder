@@ -15,6 +15,7 @@ import com.example.moneyminder.db.CrearDb
 import com.example.moneyminder.db.Firebase.ConexionFirebase
 import com.example.moneyminder.db.LeerDatosDb
 import com.example.moneyminder.model_de_datos.Gastos
+import com.example.moneyminder.model_de_datos.Usuario
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.ktx.firestore
@@ -33,9 +34,14 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        //CrearDb(this)
-
+        //ConexionFirebase(this).extraerUsuarioInicioSesion("david@gmail.com", this)
+        //Toast.makeText(this, ConexionFirebase(this).extraerUsuarioInicioSesion("david@gmail.com"), Toast.LENGTH_LONG).show()
         //Comprobamos si la base de datos existe y tiene los datos requeridos.
+        //println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+
+        ConexionFirebase(this).extraerUsuarioInicioSesion("david@gmail.com_usuario")
+
+
         val comprobarDb = ComprobarDb(this)
         val resultadoComprobacion = comprobarDb.comprobarDb()
 

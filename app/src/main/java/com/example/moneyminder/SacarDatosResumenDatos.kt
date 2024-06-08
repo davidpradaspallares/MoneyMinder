@@ -5,6 +5,7 @@ import android.widget.Toast
 import com.example.moneyminder.db.CrearDb
 import com.example.moneyminder.db.LeerDatosDb
 import com.example.moneyminder.model_de_datos.Gastos
+import com.example.moneyminder.model_de_datos.Ingresos
 import com.example.moneyminder.model_de_datos.Usuario
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -126,10 +127,23 @@ class SacarDatosResumenDatos(val context: Context) {
 
     //Restamos del salario mensual los gastos que hayamos tenido ese mes.
     fun DineroRestanteMes(): Double{
-        //Extraemos los datos del usuario y seleccionando el salario mensual le restamos la suma de todos los gastos de este mes.
+        //Extraemos los datos del usuario y los ingresos de este mes -> SalarioMensual + TotalIngresos - TotalGastos.
         try {
             var listaDatosUsuario: List<Usuario> = LeerDatosDb().leerDatosUsuario(db)
-            return listaDatosUsuario[0].salarioMensual - sumarGastosMesActual()
+
+            var listaIngresos: List<Ingresos> = LeerDatosDb().leerIngresos(db)
+            var ingresosTotal = 0.00
+            var contador = 0
+
+            for(item in listaIngresos){//Sacamos los datos del mes en curso.
+                if(listaIngresos[contador].fechaIngreso.toString().substring(3) == obtenerMesYAnioActual().toString()){
+                    ingresosTotal += listaIngresos[contador].cantidadIngreso
+                }
+                contador++
+            }
+
+
+            return listaDatosUsuario[0].salarioMensual + ingresosTotal - sumarGastosMesActual()
         }catch (e: Exception){
             return 0.00
         }

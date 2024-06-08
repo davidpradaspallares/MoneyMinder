@@ -9,7 +9,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isVisible
 import com.example.moneyminder.databinding.ActivityFormularioDatosPersonalesBinding
 import com.example.moneyminder.db.CrearDb
 import com.example.moneyminder.db.Firebase.ConexionFirebase
@@ -75,9 +74,9 @@ class FormularioDatosPersonales : AppCompatActivity() {
         binding.switchCopiaSeguridad.setOnClickListener(){
             //Comprobamos si switchCopiaSeguridad esta activado
             if(binding.switchCopiaSeguridad.isChecked){
-                binding.inputContrasena.visibility = View.VISIBLE;
+                binding.inputContrasenaL.visibility = View.VISIBLE;
             }else{
-                binding.inputContrasena.visibility = View.GONE;
+                binding.inputContrasenaL.visibility = View.GONE;
             }
         }
     }

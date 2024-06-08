@@ -3,6 +3,7 @@ package com.example.moneyminder.db.Firebase
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import com.example.moneyminder.db.CrearDb
 import com.example.moneyminder.db.LeerDatosDb
 import com.example.moneyminder.model_de_datos.Gastos
@@ -21,7 +22,7 @@ final class ConexionFirebase (context: Context) {
     val dbInterna = crearDb.writableDatabase
 
     private val dataBase = FirebaseFirestore.getInstance()
-    fun insertarGasto(gasto: Gastos) {
+    fun ingresarGasto(gasto: Gastos) {
 
         // Obtenemos una referencia al documento en la colección "gastos" usando el correo electrónico del usuario
         val docRef = db.collection("gastos").document(LeerDatosDb().getCorreoElectronico(dbInterna).toString()+"_gastos");
@@ -80,6 +81,23 @@ final class ConexionFirebase (context: Context) {
                 Log.w(TAG, "Error al escribir el documento", e)
             }
 
+    }
+
+    fun extraerUsuarioInicioSesion(email: String){
+        val docRef = db.collection("usuarios").document(email)
+        var datos = ""
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null && document.exists()) {
+                    println("###############################################################")
+                    Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+                } else {
+                    Log.d(TAG, "El documento no existe")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "Error - ", exception)
+            }
     }
 
 
