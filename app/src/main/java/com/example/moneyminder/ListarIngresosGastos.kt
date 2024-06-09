@@ -12,6 +12,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moneyminder.RecicleView.GastosAdapter
+import com.example.moneyminder.RecicleView.IngresosAdapter
 import com.example.moneyminder.databinding.ActivityListarIngresosGastosBinding
 import com.example.moneyminder.db.CrearDb
 import com.example.moneyminder.db.LeerDatosDb
@@ -34,14 +35,11 @@ class ListarIngresosGastos : AppCompatActivity(), OnClickListener {
         binding.iBtnUser.setOnClickListener(this)
         binding.iBtnCrearGasto.setOnClickListener(this)
         binding.iBtnMostrarMas.setOnClickListener(this)
+        binding.btnIngresos.setOnClickListener(this)
+        binding.btnGastos.setOnClickListener(this)
 
-        //val items = listOf("100 | Capricho | Tarjeta | 09-06-2024", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4")
-        //var crearDb = CrearDb(this)
-        //val db = crearDb.writableDatabase
-        //val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, LeerDatosDb().leerGastos(db))
-
-        //binding.listaIngresos.adapter = adapter
         iniciarRecicleViewGastos()
+        iniciarRecicleViewIngresos()
     }
     override fun onClick(v: View?) {
         when(v?.id){
@@ -57,6 +55,16 @@ class ListarIngresosGastos : AppCompatActivity(), OnClickListener {
                     binding.masBotonesLayout.visibility = View.VISIBLE
                 }
             }
+            binding.btnIngresos.id -> {
+                binding.svIngresos.visibility = View.VISIBLE
+                binding.svGastos.visibility = View.GONE
+                binding.titulo.setText("INGRESOS")
+            }
+            binding.btnGastos.id -> {
+                binding.svGastos.visibility = View.VISIBLE
+                binding.svIngresos.visibility = View.GONE
+                binding.titulo.setText("GASTOS")
+            }
         }
     }
     fun iniciarRecicleViewGastos(){
@@ -66,6 +74,16 @@ class ListarIngresosGastos : AppCompatActivity(), OnClickListener {
         val recyclerView = findViewById<RecyclerView>(R.id.recicleViewIngresosGastos)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = GastosAdapter(LeerDatosDb().leerGastos(db))
+        db.close()
+    }
+
+    fun iniciarRecicleViewIngresos(){
+        var crearDb = CrearDb(this)
+        val db = crearDb.writableDatabase
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recicleViewIngresos)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = IngresosAdapter(LeerDatosDb().leerIngresos(db))
         db.close()
     }
 }
