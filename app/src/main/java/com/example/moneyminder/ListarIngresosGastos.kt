@@ -3,6 +3,7 @@ package com.example.moneyminder
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -34,6 +35,12 @@ class ListarIngresosGastos : AppCompatActivity(), OnClickListener {
         binding.iBtnCrearGasto.setOnClickListener(this)
         binding.iBtnMostrarMas.setOnClickListener(this)
 
+        //val items = listOf("100 | Capricho | Tarjeta | 09-06-2024", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4", "Elemento 2", "Elemento 3", "Elemento 4")
+        //var crearDb = CrearDb(this)
+        //val db = crearDb.writableDatabase
+        //val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, LeerDatosDb().leerGastos(db))
+
+        //binding.listaIngresos.adapter = adapter
         iniciarRecicleViewGastos()
     }
     override fun onClick(v: View?) {
