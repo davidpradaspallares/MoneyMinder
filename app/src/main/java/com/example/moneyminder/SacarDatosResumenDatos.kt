@@ -93,7 +93,8 @@ class SacarDatosResumenDatos(val context: Context) {
                     }
                     contador++
                 }
-            }else if(LocalDate.now().dayOfMonth > LeerDatosDb().getDiaIngresoSalario(db)){
+            }else if(LocalDate.now().dayOfMonth >= LeerDatosDb().getDiaIngresoSalario(db)){
+                println("#########################################\n" + LeerDatosDb().getDiaIngresoSalario(db) + "\n" + LocalDate.now().dayOfMonth +"\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
                 contador = 0
                 for(item in listaGastos){//Sacamos los datos del mes en curso.
                     if(listaGastos[contador].fechaGasto.toString().substring(3) == obtenerMesYAnioActual().toString() &&
@@ -102,6 +103,7 @@ class SacarDatosResumenDatos(val context: Context) {
                     }
                     contador++
                 }
+                contador = 0
                 var fecha = "0" + (obtenerMesYAnioActual().substring(0,2).toInt()+1) + "-" + obtenerMesYAnioActual().substring(3)
                 for(item in listaGastos){//Sacamos los datos del mes posterior.
                     if(listaGastos[contador].fechaGasto.toString().substring(3) == fecha &&

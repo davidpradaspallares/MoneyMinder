@@ -101,6 +101,44 @@ class LeerDatosDb {
         return categorias
     }
 
+    fun leerTotalVecesCategoriasGastos(db: SQLiteDatabase): MutableList<String> {
+        val cursor = db.rawQuery("" +
+                "SELECT categoria_principal, COUNT(*) AS conteo_repeticiones\n" +
+                "FROM gastos\n" +
+                "GROUP BY categoria_principal\n" +
+                "ORDER BY conteo_repeticiones DESC;", null)
+        val categorias = mutableListOf<String>()
+
+        while (cursor.moveToNext()) {
+            val categoria = cursor.getString(1)
+            categorias.add(categoria)
+
+        }
+        cursor.close()
+
+        return categorias
+    }
+
+    fun leerTotalGastoCategoriasGastos(db: SQLiteDatabase): MutableList<String> {
+        val cursor = db.rawQuery("" +
+                "SELECT categoria_principal, \n" +
+                "       COUNT(*) AS conteo_repeticiones, \n" +
+                "       SUM(cantidad_gasto) AS total_gasto\n" +
+                "FROM gastos\n" +
+                "GROUP BY categoria_principal\n" +
+                "ORDER BY conteo_repeticiones DESC;", null)
+        val categorias = mutableListOf<String>()
+
+        while (cursor.moveToNext()) {
+            val categoria = cursor.getDouble(cursor.getColumnIndexOrThrow("total_gasto"))
+            categorias.add(categoria.toString())
+
+        }
+        cursor.close()
+
+        return categorias
+    }
+
     fun leerCantidadVecesCategoriasAñoActual(db: SQLiteDatabase): MutableList<Int>{
         val cursor = db.rawQuery("" +
                 "SELECT categoria_principal, COUNT(*) AS conteo_repeticiones\n" +
