@@ -9,8 +9,12 @@
 
     <TextView
         android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="NUEVA ALRMA"
-        style="@style/titulo_ventana"
+        android:textSize="40dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -95,62 +99,54 @@
             tools:layout_editor_absoluteY="572dp" />
 
     </LinearLayout>
-
     <!-- BARRA BAJA INICIO -->
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        style="@style/barra_baja"
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="412dp"
+        android:layout_height="77dp"
+        android:layout_gravity="bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TableRow>
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
-                <ImageButton
-                    android:id="@+id/iBtnStatistics"
-                    style="@style/boton_barra_baja"
-                    android:background="@drawable/statistics_icon"
-                    app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
-                    app:layout_constraintVertical_bias="0.518" />
+    <ImageButton
+        android:id="@+id/iBtnStatistics"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+        app:layout_constraintVertical_bias="0.518"
+        app:srcCompat="@drawable/statistics_icon" />
 
-                <TableRow style="@style/tabla_barra_baja">
+    <ImageButton
+        android:id="@+id/iBtnAlert"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+        app:srcCompat="@drawable/alert_icon" />
 
-                </TableRow>
-                <TableRow style="@style/tabla_barra_baja">
-                    <ImageButton
-                        android:id="@+id/iBtnAlert"
-                        style="@style/boton_barra_baja"
-                        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
-                        android:background="@drawable/alert_icon" />
-                </TableRow>
-                <TableRow style="@style/tabla_barra_baja">
-                    <ImageButton
-                        android:id="@+id/iBtnUser"
-                        style="@style/boton_barra_baja"
-                        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
-                        android:background="@drawable/user_icon" />
-                </TableRow>
-                <TableRow style="@style/tabla_barra_baja">
-                    <ImageButton
-                        android:id="@+id/iBtnCrearGasto"
-                        style="@style/boton_barra_baja"
-                        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
-                        app:layout_constraintEnd_toStartOf="@+id/iBtnAlert"
-                        app:layout_constraintStart_toEndOf="@+id/iBtnStatistics"
-                        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
-                        android:background="@drawable/spent_icon" />
-                </TableRow>
-            </TableRow>
-        </TableLayout>
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/iBtnCrearGasto"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+        app:layout_constraintEnd_toStartOf="@+id/iBtnAlert"
+        app:layout_constraintStart_toEndOf="@+id/iBtnStatistics"
+        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+        app:srcCompat="@drawable/spent_icon" />
     <!-- BARRA BAJA FIN -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
