@@ -3,26 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/fondoOscuroVentana"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ResumenGastos">
 
     <ScrollView
-        android:layout_width="412dp"
-        android:layout_height="655dp">
+        android:layout_width="match_parent"
+        android:layout_height="@+id/linearLayout3"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="RESUMEN GASTOS"
-                android:textSize="40dp"
-                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -31,186 +26,278 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnUlt30dias"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/btnFiltroPorDefecto"
+                    android:layout_width="15dp"
+                    android:text="|"
+                    android:textColor="@color/gray"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:text="ULT 30D" />
+                    android:layout_margin="2dp"
+                    android:backgroundTint="@color/fondoBotonesAmarillos" />
 
                 <Button
-                    android:id="@+id/btnUltMes"
+                    android:id="@+id/btnFiltroEsteAno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="2dp"
                     android:layout_weight="1"
-                    android:background="@color/green"
-                    android:text="ULT MES" />
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/fondoBotonesAmarillos"
+                    android:text="ESTE AÑO" />
 
                 <Button
-                    android:id="@+id/btnUltAño"
+                    android:id="@+id/btnFiltroMesActual"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="2dp"
                     android:layout_weight="1"
-                    android:background="@color/white"
-                    android:text="ULT AÑO" />
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/fondoBotonesAmarillos"
+                    android:text="MES" />
+
+                <Button
+                    android:id="@+id/btnTodosLosRegistros"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/fondoBotonesAmarillos"
+                    android:text="TOTAL" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/btnListarGastos"
-                android:layout_width="336dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:background="@color/white"
-                android:text="LISTAR GASTOS" />
-
-            <Button
-                android:id="@+id/ListarCategorias"
-                android:layout_width="336dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:background="@color/white"
-                android:text="LISTAR CATEGORÍAS" />
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="GASTOS TOTALES"
-                android:textSize="30dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnListarGastos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/fondoBotonesAmarillos"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:text="INGRESOS/GASTOS" />
+                <Button
+                    android:id="@+id/btnListarCategorias"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="@color/fondoBotonesAmarillos"
+                    android:text="CATEGORIAS" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/textGastoTotal"
+            <!-- GASTOS TOTALES | DINERO RESTANTE -->
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="XXXXX€"
-                android:textColor="@color/red"
-                android:textSize="25dp" />
+                android:layout_height="wrap_content">
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="GASTOS TOTALES"
+                        android:textSize="35dp"
+                        android:textStyle="bold" />
+
+                </TableRow>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/fondoOscuroEditText"/>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/textGastoTotal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="XXXXX€"
+                        android:textColor="@color/red"
+                        android:textSize="40dp" />
+                </TableRow>
+
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="DINERO RESTANTE"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+                </TableRow>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/fondoOscuroEditText"/>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/textDineroRestante"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="XXXXX€"
+                        android:textColor="@color/green"
+                        android:textSize="25dp" />
+                </TableRow>
+            </TableLayout>
             <!-- CATEGORIAS MAYOR GASTO -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="CAT MAYOR GASTO"
-                android:textSize="30dp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textGastoCat1"
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="1 | Categoría_1 - X€"
-                android:textSize="25dp" />
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="CAT MAYOR GASTO"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/fondoOscuroEditText"/>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/text4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="1 | "
+                        android:textSize="25dp" />
+                    <TextView
+                        android:id="@+id/textGastoCat1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Categoría_1 - X"
+                        android:textSize="25dp" />
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/text5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="2 | "
+                        android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/textGastoCat2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Categoría_2 - X"
+                        android:textSize="20dp" />
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/text6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="3 | "
+                        android:textSize="17dp" />
+                    <TextView
+                        android:id="@+id/textGastoCat3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Categoría_3 - X"
+                        android:textSize="17dp" />
+                </TableRow>
+            </TableLayout>
+            <!--CATEGORIA MAS RECURRENTE-->
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="CAT MAS RECURRENTE"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/fondoOscuroEditText"/>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="1 | "
+                        android:textSize="25dp" />
+                    <TextView
+                        android:id="@+id/textGastoMasRc1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Categoría_1 - X"
+                        android:textSize="25dp" />
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/text1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="2 | "
+                        android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/textGastoMasRc2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Categoría_2 - X"
+                        android:textSize="20dp" />
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/text3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="3 | "
+                        android:textSize="17dp" />
+                    <TextView
+                        android:id="@+id/textGastoMasRc3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Categoría_3 - X"
+                        android:textSize="17dp" />
+                </TableRow>
+            </TableLayout>
 
-            <TextView
-                android:id="@+id/textGastoCat2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="2 | Categoría_1 - X€"
-                android:textSize="25dp" />
 
-            <TextView
-                android:id="@+id/textGastoCat3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="3 | Categoría_1 - X€"
-                android:textSize="25dp" />
 
-            <!-- SUB CATEGORIA MAYOR GASTO -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="SUB CAT MAYOR GASTO"
-                android:textSize="30dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textGastoSubCat1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="1 | Categoría_1 - X€"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/textGastoSubCat2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="2 | Categoría_1 - X€"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/textGastoSubCat3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="3 | Categoría_1 - X€"
-                android:textSize="25dp" />
-            <!-- CATEGORIA MAS RECURRENTE -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="CAT MAS RECURRENTE"
-                android:textSize="30dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textGastoMasRc1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="1 | Categoría_1 - X"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/textGastoMasRc2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="2 | Categoría_1 - X"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/textGastoMasRc3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="3 | Categoría_1 - X"
-                android:textSize="25dp" />
             <!-- SUB CATEGORIA MAS RECURRENTE -->
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -247,59 +334,62 @@
                 android:gravity="center"
                 android:text="3 | Categoría_1 - X"
                 android:textSize="25dp" />
-
+        -->
 
         </LinearLayout>
     </ScrollView>
     <!-- BARRA BAJA INICIO -->
-
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        android:layout_width="412dp"
-        android:layout_height="77dp"
-        android:layout_gravity="bottom"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        style="@style/barra_baja"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/iBtnStatistics"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
-        app:layout_constraintVertical_bias="0.518"
-        app:srcCompat="@drawable/statistics_icon" />
-
-    <ImageButton
-        android:id="@+id/iBtnAlert"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
-        app:srcCompat="@drawable/alert_icon" />
-
-    <ImageButton
-        android:id="@+id/iBtnCrearGasto"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
-        app:layout_constraintEnd_toStartOf="@+id/iBtnAlert"
-        app:layout_constraintStart_toEndOf="@+id/iBtnStatistics"
-        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
-        app:srcCompat="@drawable/spent_icon" />
-
+        app:layout_constraintStart_toStartOf="parent">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableRow>
+                <TableRow style="@style/tabla_barra_baja">
+                    <ImageButton
+                        android:id="@+id/iBtnStatistics"
+                        style="@style/boton_barra_baja"
+                        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+                        app:layout_constraintVertical_bias="0.518"
+                        android:background="@drawable/statistics_icon" />
+                </TableRow>
+                <TableRow style="@style/tabla_barra_baja">
+                    <ImageButton
+                        android:id="@+id/iBtnAlert"
+                        style="@style/boton_barra_baja"
+                        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+                        android:background="@drawable/alert_icon" />
+                </TableRow>
+                <TableRow style="@style/tabla_barra_baja">
+                    <ImageButton
+                        android:id="@+id/iBtnUser"
+                        style="@style/boton_barra_baja"
+                        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+                        android:background="@drawable/user_icon" />
+                </TableRow>
+                <TableRow style="@style/tabla_barra_baja">
+                    <ImageButton
+                        android:id="@+id/iBtnCrearGasto"
+                        style="@style/boton_barra_baja"
+                        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+                        app:layout_constraintEnd_toStartOf="@+id/iBtnAlert"
+                        app:layout_constraintStart_toEndOf="@+id/iBtnStatistics"
+                        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+                        android:background="@drawable/spent_icon" />
+                </TableRow>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
     <!-- BARRA BAJA FIN -->
 
 

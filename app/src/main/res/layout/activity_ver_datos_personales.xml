@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/fondoOscuroVentana"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerDatosPersonales">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/titulo_ventana"
+                android:text="DATOS PERSONALES"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="NOMBRE"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/fondoOscuroEditText" />
+
+            <TextView
+                android:id="@+id/textNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="-"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                tools:layout_editor_absoluteX="72dp"
+                tools:layout_editor_absoluteY="108dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="APELIIDOS"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/fondoOscuroEditText" />
+
+            <TextView
+                android:id="@+id/textApellidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="-"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                tools:layout_editor_absoluteX="72dp"
+                tools:layout_editor_absoluteY="108dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="EMAIL"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/fondoOscuroEditText" />
+
+            <TextView
+                android:id="@+id/textEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="-"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                tools:layout_editor_absoluteX="72dp"
+                tools:layout_editor_absoluteY="108dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="TELEFONO"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/fondoOscuroEditText" />
+
+            <TextView
+                android:id="@+id/textTelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="-"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                tools:layout_editor_absoluteX="72dp"
+                tools:layout_editor_absoluteY="108dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="SALARIO MENSUAL"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/fondoOscuroEditText" />
+
+            <TextView
+                android:id="@+id/textSalarioMensual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="-"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                tools:layout_editor_absoluteX="72dp"
+                tools:layout_editor_absoluteY="108dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="DÍA DE PAGO"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/fondoOscuroEditText" />
+
+            <TextView
+                android:id="@+id/textDiaDePago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="-"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                tools:layout_editor_absoluteX="72dp"
+                tools:layout_editor_absoluteY="108dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="COPIAS DE SEGURIDAD"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/fondoOscuroEditText" />
+
+            <TextView
+                android:id="@+id/textCopiaSeguridad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="-"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                tools:layout_editor_absoluteX="72dp"
+                tools:layout_editor_absoluteY="108dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!--<TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+
+
+
+
+        <TableRow android:layout_width="match_parent">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="DIA DE PAGO:  "
+                android:textAlignment="textEnd"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="72dp"
+                tools:layout_editor_absoluteY="108dp" />
+
+            <TextView
+                android:id="@+id/textDiaDePago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="-"
+                android:textSize="15dp"
+                tools:layout_editor_absoluteX="72dp"
+                tools:layout_editor_absoluteY="108dp" />
+        </TableRow>
+    </TableLayout>-->
+
+    <!-- BARRA BAJA INICIO -->
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        style="@style/barra_baja"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableRow>
+                <TableRow style="@style/tabla_barra_baja">
+                    <ImageButton
+                        android:id="@+id/iBtnStatistics"
+                        style="@style/boton_barra_baja"
+                        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+                        app:layout_constraintVertical_bias="0.518"
+                        android:background="@drawable/statistics_icon" />
+                </TableRow>
+                <TableRow style="@style/tabla_barra_baja">
+                    <ImageButton
+                        android:id="@+id/iBtnAlert"
+                        style="@style/boton_barra_baja"
+                        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+                        android:background="@drawable/alert_icon" />
+                </TableRow>
+                <TableRow style="@style/tabla_barra_baja">
+                    <ImageButton
+                        android:id="@+id/iBtnUser"
+                        style="@style/boton_barra_baja"
+                        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+                        android:background="@drawable/user_icon" />
+                </TableRow>
+                <TableRow style="@style/tabla_barra_baja">
+                    <ImageButton
+                        android:id="@+id/iBtnCrearGasto"
+                        style="@style/boton_barra_baja"
+                        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+                        app:layout_constraintEnd_toStartOf="@+id/iBtnAlert"
+                        app:layout_constraintStart_toEndOf="@+id/iBtnStatistics"
+                        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+                        android:background="@drawable/spent_icon" />
+                </TableRow>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+    <!-- BARRA BAJA FIN -->
+</androidx.constraintlayout.widget.ConstraintLayout>

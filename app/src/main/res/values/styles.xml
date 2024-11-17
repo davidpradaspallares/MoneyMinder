@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="barra_baja">
+        <item name="android:background">@color/barra_baja</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">5dp</item>
+    </style>
+    <style name="boton_barra_baja">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+    <style name="tabla_barra_baja">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <style name="titulo_ventana">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="radius">
+        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerSizeBottomLeft">20dp</item>
+        <item name="cornerSizeBottomRight">20dp</item>
+    </style>
+    <style name="switchPersonalizado" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:thumbTint">@color/fondoBotonesAmarillos</item>
+        <item name="android:trackTint">@color/red</item>
+    </style>
+    <style name="textInputLayoutFormUsuario" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:transitionName">""</item>
+    </style>
+
+</resources>

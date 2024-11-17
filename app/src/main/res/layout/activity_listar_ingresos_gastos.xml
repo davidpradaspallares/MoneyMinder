@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/fondoOscuroVentana"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListarIngresosGastos">
+
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="INGRESOS"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/svGastos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
+        tools:layout_editor_absoluteX="0dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recicleViewIngresosGastos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp" />
+
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/svIngresos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
+        tools:layout_editor_absoluteX="0dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recicleViewIngresos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp" />
+
+
+    </ScrollView>
+
+    <!--<ListView
+        android:id="@+id/listaIngresos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/green"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />-->
+
+    <ImageButton
+        android:id="@+id/iBtnMostrarMas"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/mas_informacion"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/masBotonesLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/iBtnMostrarMas">
+
+        <Button
+            android:id="@+id/btnIngresos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="INGRESOS"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/fondoBotonesAmarillos"
+            tools:layout_editor_absoluteX="10dp" />
+
+        <Button
+            android:id="@+id/btnGastos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="GASTOS"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/fondoBotonesAmarillos"
+            tools:layout_editor_absoluteX="10dp" />
+    </LinearLayout>
+    <!-- BARRA BAJA INICIO -->
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        style="@style/barra_baja"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableRow>
+
+                <ImageButton
+                    android:id="@+id/iBtnStatistics"
+                    style="@style/boton_barra_baja"
+                    android:background="@drawable/statistics_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+                    app:layout_constraintVertical_bias="0.518" />
+
+                <TableRow style="@style/tabla_barra_baja">
+
+                </TableRow>
+                <TableRow style="@style/tabla_barra_baja">
+                    <ImageButton
+                        android:id="@+id/iBtnAlert"
+                        style="@style/boton_barra_baja"
+                        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+                        android:background="@drawable/alert_icon" />
+                </TableRow>
+                <TableRow style="@style/tabla_barra_baja">
+                    <ImageButton
+                        android:id="@+id/iBtnUser"
+                        style="@style/boton_barra_baja"
+                        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+                        android:background="@drawable/user_icon" />
+                </TableRow>
+                <TableRow style="@style/tabla_barra_baja">
+                    <ImageButton
+                        android:id="@+id/iBtnCrearGasto"
+                        style="@style/boton_barra_baja"
+                        app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
+                        app:layout_constraintEnd_toStartOf="@+id/iBtnAlert"
+                        app:layout_constraintStart_toEndOf="@+id/iBtnStatistics"
+                        app:layout_constraintTop_toTopOf="@+id/bottomAppBar"
+                        android:background="@drawable/spent_icon" />
+                </TableRow>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+    <!-- BARRA BAJA FIN -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
